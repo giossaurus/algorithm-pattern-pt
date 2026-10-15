@@ -516,7 +516,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 
 > Given a binary tree, return the node values obtained by **level-order traversal**. (i.e. visit all nodes level by level, from left to right)
 
-Idea: use a queue to record the elements of one level, then scan this level's elements and add the next level's elements to the queue (each number goes in and comes out once, so the complexity is O(logN))
+Idea: use a queue to record the elements of one level, then scan this level's elements and add the next level's elements to the queue (each number goes in and comes out once, so the complexity is O(N))
 
 ```go
 func levelOrder(root *TreeNode) [][]int {

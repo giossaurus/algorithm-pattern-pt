@@ -6,9 +6,9 @@ Transforme um grande problema em problemas menores e resolva cada pequeno proble
 
 ## Exemplos
 
-[string reversa](https://leetcode-cn.com/problems/reverse-string/)
+[reverse-string](https://leetcode-cn.com/problems/reverse-string/)
 
-> Escreva uma função que inverte a string de entrada. A string de entrada é fornecida como uma matriz de caracteres `char[]`.
+> Escreva uma função que inverte a string de entrada. A string de entrada é fornecida como um array de caracteres `char[]`.
 
 ```go
 func reverseString(s []byte) {
@@ -27,9 +27,9 @@ func reverse(s []byte, i int, res *[]byte) {
 }
 ```
 
-[trocar nós em pares](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+[swap-nodes-in-pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
 
-> Dada uma lista vinculada, troque a cada dois nós adjacentes e retorne a lista vinculada após a troca.
+> Dada uma lista encadeada, troque cada par de nós adjacentes e retorne a lista encadeada resultante.
 > **Você não pode simplesmente modificar os valores dentro dos nós**, mas em vez disso, precisa realmente trocar os nós.
 
 ```go
@@ -52,9 +52,9 @@ func helper(head *ListNode)*ListNode{
 }
 ```
 
-[árvores-binárias-de-pesquisa-ii](https://leetcode-cn.com/problems/unique-binary-search-trees-ii/)
+[unique-binary-search-trees-ii](https://leetcode-cn.com/problems/unique-binary-search-trees-ii/)
 
-> Dado um número inteiro n, gere todas as árvores de pesquisa binária cujos nós são compostos de 1 ... n.
+> Dado um inteiro n, gere todas as árvores binárias de busca distintas cujos nós têm os valores 1 ... n.
 
 ```go
 func generateTrees(n int) []*TreeNode {
@@ -89,7 +89,7 @@ func generate(start,end int)[]*TreeNode{
 
 ## Recursão + Memoização
 
-[número-fibonacci](https://leetcode-cn.com/problems/fibonacci-number/)
+[fibonacci-number](https://leetcode-cn.com/problems/fibonacci-number/)
 
 > Os números de Fibonacci, geralmente denotados por F(n), formam uma sequência chamada sequência de Fibonacci. A sequência começa com 0 e 1, e cada número subsequente é a soma dos dois anteriores. Ou seja:
 > F(0) = 0, F(1) = 1
@@ -118,7 +118,7 @@ func dfs(n int)int{
 
 ## Exercícios
 
-- [ ] [string reversa](https://leetcode-cn.com/problems/reverse-string/)
-- [ ] [trocar nós em pares](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
-- [ ] [árvores de pesquisa binárias exclusivas-ii](https://leetcode-cn.com/problems/unique-binary-search-trees-ii/)
-- [ ] [número-fibonacci](https://leetcode-cn.com/problems/fibonacci-number/)
+- [ ] [reverse-string](https://leetcode-cn.com/problems/reverse-string/)
+- [ ] [swap-nodes-in-pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)
+- [ ] [unique-binary-search-trees-ii](https://leetcode-cn.com/problems/unique-binary-search-trees-ii/)
+- [ ] [fibonacci-number](https://leetcode-cn.com/problems/fibonacci-number/)

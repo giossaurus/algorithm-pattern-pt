@@ -1,6 +1,6 @@
-# Classificação
+# Ordenação
 
-## Classificações comumente testadas
+## Ordenações mais cobradas
 
 ### Quicksort
 
@@ -45,7 +45,7 @@ func swap(nums []int, i, j int) {
 }
 ```
 
-### Mesclar classificação
+### Merge sort
 
 ```go
 func MergeSort(nums []int) []int {
@@ -85,17 +85,17 @@ func merge(left, right []int) (result []int) {
 }
 ```
 
-### Heap Sort
+### Heap sort
 
-A árvore binária perfeita representada por uma matriz (árvore binária completa)
+Uma árvore binária perfeita representada por um array (árvore binária completa)
 
 > Árvore binária perfeita VS outras árvores binárias
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/tree_type.png)
+![image.png](../../images/tree_type.png)
 
-[Animado demonstração](https://www.bilibili.com/video/av18980178/)
+[Demonstração animada](https://www.bilibili.com/video/av18980178/)
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/heap.png)
+![image.png](../../images/heap.png)
 
 Código principal
 
@@ -152,10 +152,10 @@ func swap(a []int, i, j int) {
 
 ## Referências
 
-[Os 10 principais algoritmos de classificação clássicos](https://www.cnblogs.com/onepixel/p/7674659.html)
+[Os 10 algoritmos de ordenação clássicos](https://www.cnblogs.com/onepixel/p/7674659.html)
 
-[Pilha binária](https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/er-cha-dui-xiang-jie-shi-xian-you-xian-ji-dui-lie)
+[Heap binário](https://labuladong.gitbook.io/algo/shu-ju-jie-gou-xi-lie/er-cha-dui-xiang-jie-shi-xian-you-xian-ji-dui-lie)
 
 ## Prática
 
-- [] Escrever à mão quicksort, mesclar classificar e classificar heap
+- [ ] Implementar à mão quicksort, merge sort e heap sort

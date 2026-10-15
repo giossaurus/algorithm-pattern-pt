@@ -1,12 +1,12 @@
-# Programação Dinâmica
+# Programação dinâmica
 
-## Background
+## Contexto
 
 Vamos começar com um problema~
 
-Por exemplo: [triângulo](https://leetcode-cn.com/problems/triangle/)
+Por exemplo: [triangle](https://leetcode-cn.com/problems/triangle/)
 
-> Dado um triângulo, encontre a soma mínima do caminho de cima para baixo. Cada etapa você pode mover para um nó adjacente na linha abaixo.
+> Dado um triângulo, encontre a soma mínima do caminho de cima para baixo. A cada passo, você pode se mover para um número adjacente na linha de baixo.
 
 Por exemplo, dado o seguinte triângulo:
 
@@ -21,26 +21,26 @@ Por exemplo, dado o seguinte triângulo:
 
 A soma mínima do caminho de cima para baixo é 11 (ou seja, 2 + 3 + 5 + 1 = 11).
 
-Use DFS (travessia ou divisão e conquistar)
+Use DFS (percurso ou dividir para conquistar)
 
-Traversal
+Percurso
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/dp_triangle.png)
+![image.png](../../images/dp_triangle.png)
 
-Dividir e conquistar
+Dividir para conquistar
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/dp_dc.png)
+![image.png](../../images/dp_dc.png)
 
 Otimize o DFS armazenando em cache valores que já foram calculados (chamados: memoização; essencialmente: programação dinâmica)
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/dp_memory_search.png)
+![image.png](../../images/dp_memory_search.png)
 
-A programação dinâmica transforma um grande problema em pequenos problemas, e o método que resolve o problema da computação repetida de subproblemas é chamado de programação dinâmica.
+A programação dinâmica transforma um problema grande em problemas menores; o método que resolve a computação repetida de subproblemas é chamado de programação dinâmica.
 
 A diferença entre programação dinâmica e DFS
 
-- Para um binário árvore, os subproblemas não têm interseção, então a maioria dos problemas de árvore binária podem ser resolvidos com recursão ou divisão e conquista, ou seja, DFS.
-- Para um problema como o triângulo, onde há caminhos repetidos, **os subproblemas se cruzam**, então pode ser resolvido com programação dinâmica.
+- Em uma árvore binária, os subproblemas não se sobrepõem, então a maioria dos problemas de árvore binária pode ser resolvida com recursão ou dividir para conquistar, ou seja, DFS.
+- Para um problema como o triângulo, onde há caminhos repetidos, **os subproblemas se sobrepõem**, então pode ser resolvido com programação dinâmica.
 
 Programação dinâmica, de baixo para cima
 
@@ -146,19 +146,19 @@ Function(x) {
 }
 ```
 
-Programação dinâmica: é uma forma de pensar para resolver problemas, onde o resultado de um problema de grande escala é calculado a partir dos resultados de problemas de menor escala. A programação dinâmica pode ser implementada com recursão (busca de memorização).
+Programação dinâmica: é uma forma de pensar para resolver problemas, onde o resultado de um problema de grande escala é calculado a partir dos resultados de problemas de menor escala. A programação dinâmica pode ser implementada com recursão (busca com memoização).
 
 ## Casos de uso
 
 Duas condições devem ser satisfeitas:
 
-- Satisfaça uma das seguintes:
- - Encontre o valor máximo/mínimo (Máximo/Mínimo)
- - Determine a viabilidade (Sim/Não)
- - Contar o número de soluções viáveis (Contagem(\*))
-- Não pode ser classificado ou trocado (Não é possível classificar/trocar)
+- Satisfazer uma das seguintes:
+ - Encontrar o valor máximo/mínimo (Maximum/Minimum)
+ - Determinar a viabilidade (Yes/No)
+ - Contar o número de soluções viáveis (Count(\*))
+- Não pode ser ordenado nem trocado (Can not sort / swap)
 
-Por exemplo: [sequência consecutiva mais longa](https://leetcode-cn.com/problems/longest-consecutive-sequence/) — as posições podem ser trocadas, portanto a programação dinâmica não é usada.
+Por exemplo: [longest-consecutive-sequence](https://leetcode-cn.com/problems/longest-consecutive-sequence/) — as posições podem ser trocadas, portanto a programação dinâmica não é usada.
 
 ## Quatro elementos-chave
 
@@ -173,18 +173,18 @@ Por exemplo: [sequência consecutiva mais longa](https://leetcode-cn.com/problem
 
 ## Quatro tipos comuns
 
-1. Matriz DP (10%)
-1. Sequência (40%)
-1. Duas Sequências DP (40%)
+1. DP em matriz (10%)
+1. DP de sequência (40%)
+1. DP de duas sequências (40%)
 1. Mochila (10%)
 
 > Notas
 >
-> - A maioria dos problemas de algoritmos gananciosos dependem da memorização de respostas, portanto, se a programação dinâmica puder ser usada, prefira a programação dinâmica em vez de algoritmos gananciosos.
+> - A maioria dos problemas de algoritmos gulosos depende de memorizar respostas; portanto, se for possível usar programação dinâmica, prefira-a aos algoritmos gulosos.
 
-## 1. Tipo de matriz (10%)
+## 1. DP em matriz (10%)
 
-### [soma-do-caminho-mínimo](https://leetcode-cn.com/problems/minimum-path-sum/)
+### [minimum-path-sum](https://leetcode-cn.com/problems/minimum-path-sum/)
 
 > Dada uma grade *m* x *n* preenchida com números inteiros não negativos, encontre um caminho do canto superior esquerdo ao canto inferior direito que minimize a soma dos números ao longo do caminho.
 
@@ -224,10 +224,10 @@ func min(a, b int) int {
 }
 ```
 
-### [caminhos exclusivos](https://leetcode-cn.com/problems/unique-paths/)
+### [unique-paths](https://leetcode-cn.com/problems/unique-paths/)
 
 > Um robô está localizado no canto superior esquerdo de uma grade m x n (o ponto inicial está marcado como "Início" na figura abaixo).
-> O robô só pode se mover para baixo ou para a direita um passo de cada vez. O robô está tentando alcançar o canto inferior direito da grade (marcado como "Concluir" na figura abaixo).
+> O robô só pode se mover para baixo ou para a direita um passo de cada vez. O robô está tentando alcançar o canto inferior direito da grade (marcado como "Fim" na figura abaixo).
 > Quantos caminhos distintos existem no total?
 
 ```go
@@ -254,7 +254,7 @@ func uniquePaths(m int, n int) int {
 ### [unique-paths-ii](https://leetcode-cn.com/problems/unique-paths-ii/)
 
 > Um robô está localizado no canto superior esquerdo de uma grade m x n (o ponto inicial está marcado como "Início" na figura abaixo).
-> O robô só pode se mover para baixo ou para a direita um passo de cada vez. O robô está tentando alcançar o canto inferior direito da grade (marcado como "Concluir" na figura abaixo).
+> O robô só pode se mover para baixo ou para a direita um passo de cada vez. O robô está tentando alcançar o canto inferior direito da grade (marcado como "Fim" na figura abaixo).
 > Quantos caminhos distintos existem no total?
 > Agora considere que existem obstáculos na grade. Quantos caminhos distintos existem do canto superior esquerdo até o canto inferior direito?
 
@@ -298,9 +298,9 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 }
 ```
 
-## 2. Tipo de sequência (40%)
+## 2. DP de sequência (40%)
 
-### [escadas de escalada](https://leetcode-cn.com/problems/climbing-stairs/)
+### [climbing-stairs](https://leetcode-cn.com/problems/climbing-stairs/)
 
 > Suponha que você esteja subindo escadas. São necessários *n* passos para chegar ao topo.
 
@@ -322,8 +322,8 @@ func climbStairs(n int) int {
 
 ### [jump-game](https://leetcode-cn.com/problems/jump-game/)
 
-> Dada uma matriz de números inteiros não negativos, você é inicialmente posicionado no primeiro índice da matriz.
-> Cada elemento na matriz representa o comprimento máximo do salto naquela posição.
+> Dado um array de inteiros não negativos, você começa posicionado no primeiro índice do array.
+> Cada elemento do array representa o comprimento máximo do salto a partir daquela posição.
 > Determine se você é capaz de alcançar o último índice.
 
 ```go
@@ -351,9 +351,9 @@ func canJump(nums []int) bool {
 
 ### [jump-game-ii](https://leetcode-cn.com/problems/jump-game-ii/)
 
-> Dada uma matriz de números inteiros não negativos, você é inicialmente posicionado no primeiro índice da matriz.
-> Cada elemento na matriz representa o comprimento máximo do salto naquela posição.
-> Seu objetivo é alcançar o último índice no número mínimo de pula.
+> Dado um array de inteiros não negativos, você começa posicionado no primeiro índice do array.
+> Cada elemento do array representa o comprimento máximo do salto a partir daquela posição.
+> Seu objetivo é alcançar o último índice com o número mínimo de saltos.
 
 ```go
 // v1 dynamic programming (other languages may time out; refer to v2)
@@ -451,7 +451,11 @@ func isPalindrome(s string, i, j int) bool {
 
 Nota
 
- - Ao verificar substrings palindrômicas, você pode pré-calculá-las com programação dinâmica para reduzir a complexidade do tempo. subsequência.
+- Ao verificar substrings palindrômicas, você pode pré-calculá-las com programação dinâmica para reduzir a complexidade de tempo.
+
+### [longest-increasing-subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+
+> Dado um array de inteiros não ordenado, encontre o comprimento da maior subsequência crescente.
 
 ```go
 func lengthOfLIS(nums []int) int {
@@ -542,19 +546,19 @@ func inDict(s string,dict map[string]bool) bool {
 
 Resumo
 
-A abordagem comum é usar a posição 0 como espaço reservado, para que os problemas possam ser tratados de maneira uniforme. A inicialização então usa comprimento+1 em cima do original, e o resultado retornado é f[n].
+A abordagem comum é usar a posição 0 como espaço reservado, para que os problemas possam ser tratados de maneira uniforme. Na inicialização, use o comprimento original + 1; o resultado retornado é f[n].
 
-- O estado pode ser "o primeiro i"
+- O estado pode ser "os primeiros i"
 - Inicializar com comprimento+1
 - Acesso com índice = i-1
 - Valor de retorno: f[n] ou f[m][n]
 
-## Duas Sequências DP (40%)
+## DP de duas sequências (40%)
 
-### [mais longa subsequência comum](https://leetcode-cn.com/problems/longest-common-subsequence/)
+### [longest-common-subsequence](https://leetcode-cn.com/problems/longest-common-subsequence/)
 
 > Dadas duas strings text1 e text2, retorne a subsequência comum mais longa dessas duas strings.
-> Uma subsequência de uma string é uma nova string gerada a partir da string original com alguns caracteres (pode ser nenhum) excluídos sem alterar a ordem relativa dos restantes caracteres.
+> Uma subsequência de uma string é uma nova string gerada a partir da string original com alguns caracteres (pode ser nenhum) excluídos sem alterar a ordem relativa dos caracteres restantes.
 > Por exemplo, "ace" é uma subsequência de "abcde", mas "aec" não é uma subsequência de "abcde". Uma "subsequência comum" de duas strings é uma subsequência comum a ambas as strings.
 
 ```go
@@ -592,7 +596,7 @@ func max(a,b int)int {
 
 Nota
 
-- Inicialização de fatia Go
+- Inicialização de slices em Go
 
 ```go
 dp:=make([][]int,len(a)+1)
@@ -607,12 +611,12 @@ for i:=0;i<=len(a);i++ {
 ### [edit-distance](https://leetcode-cn.com/problems/edit-distance/)
 
 > Dadas duas palavras word1 e word2, calcule o número mínimo de operações necessárias para converter word1 em word2.
-> Você pode executar o três operações seguintes em uma palavra:
-> Inserir um caracter
-> Excluir um caracter
-> Substituir um caracter
+> Você pode executar as três operações a seguir em uma palavra:
+> Inserir um caractere
+> Excluir um caractere
+> Substituir um caractere
 
-Idéia: muito semelhante ao problema anterior. Se for igual, nenhuma operação será necessária; caso contrário, pegue o mínimo das operações de exclusão, inserção e substituição + 1.
+Ideia: muito semelhante ao problema anterior. Se os caracteres forem iguais, nenhuma operação é necessária; caso contrário, pegue o mínimo entre exclusão, inserção e substituição, + 1.
 
 ```go
 func minDistance(word1 string, word2 string) int {
@@ -654,9 +658,9 @@ Nota
 
 ## Troca de moedas e mochila (10%)
 
-### [troca de moedas](https://leetcode-cn.com/problems/coin-change/)
+### [coin-change](https://leetcode-cn.com/problems/coin-change/)
 
-> Dadas moedas de denominações diferentes e um valor total, escreva uma função para calcular o menor número de moedas necessárias para perfazer esse valor. Se esse valor não puder ser compensado por nenhuma combinação de moedas, retorne -1.
+> Dadas moedas de denominações diferentes e um valor total, escreva uma função para calcular o menor número de moedas necessárias para perfazer esse valor. Se esse valor não puder ser formado por nenhuma combinação de moedas, retorne -1.
 
 Ideia: um pouco diferente de outros problemas de DP — aqui i representa dinheiro ou capacidade.
 
@@ -696,9 +700,9 @@ Nota
 
 > dp[i-a[j]] decide se a[j] participa
 
-### [mochila](https://www.lintcode.com/problem/backpack/description)
+### [backpack](https://www.lintcode.com/problem/backpack/description)
 
-> Dados n itens, selecione alguns itens para colocar em uma mochila. Quão cheio pode estar no máximo? Suponha que o tamanho da mochila seja m e o tamanho de cada item seja A[i].
+> Dados n itens, selecione alguns itens para colocar em uma mochila. Até quanto a mochila pode ser preenchida, no máximo? Suponha que o tamanho da mochila seja m e o tamanho de cada item seja A[i].
 
 ```go
 func backPack (m int, A []int) int {
@@ -732,7 +736,7 @@ func backPack (m int, A []int) int {
 
 ### [backpack-ii](https://www.lintcode.com/problem/backpack-ii/description)
 
-> Existem itens `n` e uma mochila de tamanho `m`. O array `A` fornece o tamanho de cada item e o array `V` fornece o valor de cada item.
+> Existem `n` itens e uma mochila de tamanho `m`. O array `A` fornece o tamanho de cada item e o array `V` fornece o valor de cada item.
 > Qual é o valor total máximo que pode ser colocado na mochila?
 
 Ideia: f[i][j] é o valor máximo de colocar os primeiros i itens em uma mochila de capacidade j
@@ -767,29 +771,29 @@ func max(a,b int)int{
 
 ## Exercícios
 
-Matriz DP (10%)
+DP em matriz (10%)
 
-- [ ] [triângulo](https://leetcode-cn.com/problems/triangle/)
-- [ ] [soma do caminho mínimo](https://leetcode-cn.com/problems/minimum-path-sum/)
-- [ ] [caminhos exclusivos](https://leetcode-cn.com/problems/unique-paths/)
-- [ ] [caminhos exclusivos-ii](https://leetcode-cn.com/problems/unique-paths-ii/)
+- [ ] [triangle](https://leetcode-cn.com/problems/triangle/)
+- [ ] [minimum-path-sum](https://leetcode-cn.com/problems/minimum-path-sum/)
+- [ ] [unique-paths](https://leetcode-cn.com/problems/unique-paths/)
+- [ ] [unique-paths-ii](https://leetcode-cn.com/problems/unique-paths-ii/)
 
-Sequência (40%)
+DP de sequência (40%)
 
-- [ ] [escadas de subida](https://leetcode-cn.com/problems/climbing-stairs/)
-- [ ] [jogo de salto](https://leetcode-cn.com/problems/jump-game/)
-- [ ] [jogo de salto-ii](https://leetcode-cn.com/problems/jump-game-ii/)
-- [ ] [particionamento de palíndromo-ii](https://leetcode-cn.com/problems/palindrome-partitioning-ii/)
-- [ ] [subsequência crescente mais longa](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
-- [] [quebra de palavra](https://leetcode-cn.com/problems/word-break/)
+- [ ] [climbing-stairs](https://leetcode-cn.com/problems/climbing-stairs/)
+- [ ] [jump-game](https://leetcode-cn.com/problems/jump-game/)
+- [ ] [jump-game-ii](https://leetcode-cn.com/problems/jump-game-ii/)
+- [ ] [palindrome-partitioning-ii](https://leetcode-cn.com/problems/palindrome-partitioning-ii/)
+- [ ] [longest-increasing-subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+- [ ] [word-break](https://leetcode-cn.com/problems/word-break/)
 
-Duas sequências DP (40%)
+DP de duas sequências (40%)
 
-- [] [maior subsequência comum](https://leetcode-cn.com/problems/longest-common-subsequence/)
-- [] [editar distância](https://leetcode-cn.com/problems/edit-distance/)
+- [ ] [longest-common-subsequence](https://leetcode-cn.com/problems/longest-common-subsequence/)
+- [ ] [edit-distance](https://leetcode-cn.com/problems/edit-distance/)
 
 Mochila e troca de moedas (10%)
 
-- [] [troca de moedas](https://leetcode-cn.com/problems/coin-change/)
-- [] [mochila](https://www.lintcode.com/problem/backpack/description)
-- [ ] [mochila-ii](https://www.lintcode.com/problem/backpack-ii/description)
+- [ ] [coin-change](https://leetcode-cn.com/problems/coin-change/)
+- [ ] [backpack](https://www.lintcode.com/problem/backpack/description)
+- [ ] [backpack-ii](https://www.lintcode.com/problem/backpack-ii/description)

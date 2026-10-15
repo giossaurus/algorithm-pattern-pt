@@ -1,4 +1,4 @@
-# Go Quick Start
+# Introdução ao Go
 
 ## Sintaxe básica
 
@@ -6,9 +6,9 @@
 
 ## Bibliotecas comuns
 
-### Fatias
+### Slices
 
-Go simula pilhas e filas usando fatias.
+Em Go, pilhas e filas são simuladas com slices.
 
 Pilha
 
@@ -40,10 +40,10 @@ len(queue)==0
 
 Observações
 
-- Ao passar como parâmetro, você só pode modificar os dados; você não pode adicionar ou excluir dos dados originais.
+- Ao passar um slice como parâmetro, você só pode modificar os dados; não pode adicionar nem remover elementos dos dados originais.
 - Por padrão s=s[0:len(s)], que inclui o limite inferior, mas exclui o limite superior, expresso matematicamente como: [)
 
-### Mapas
+### Maps
 
 Uso básico
 
@@ -62,11 +62,11 @@ for k,v:=range m{
 
 Observações
 
-- As chaves do mapa devem ser comparáveis; eles não podem ser uma fatia, mapa ou função.
-- Os valores do mapa sempre têm um valor padrão, no qual você pode operar diretamente, por exemplo. m[age]++ altera o valor de 0 para 1.
-- Comparar dois mapas requer iteração para verificar se seus pares de valores-chave são iguais. Devido ao comportamento do valor padrão, você precisa verificar os valores val e ok.
+- As chaves de um map devem ser comparáveis; não podem ser slice, map ou função.
+- Os valores de um map sempre têm um valor padrão (zero value), sobre o qual você pode operar diretamente; por exemplo, m[age]++ muda o valor de 0 para 1.
+- Comparar dois maps exige iterar para verificar se os pares chave-valor são iguais. Por causa do valor padrão, você precisa verificar tanto val quanto ok.
 
-### Biblioteca Padrão
+### Biblioteca padrão
 
 sort
 
@@ -79,7 +79,7 @@ sort.Strings([]string{})
 sort.Slice(s,func(i,j int)bool{return s[i]<s[j]})
 ```
 
-matemática
+math
 
 ```go
 // int32 max and min values
@@ -91,7 +91,7 @@ math.MinInt64
 
 ```
 
-copiar
+copy
 
 ```go
 // To delete a[i], use copy to overwrite position i with values from i+1 to the end, then shrink by 1
@@ -126,4 +126,4 @@ str:=strconv.Itoa()
 
 ## Notas para resolver problemas
 
-- No LeetCode, não use uma variável global como valor de retorno, caso contrário, o verificador de problemas reportará um erro.
+- No LeetCode, não use uma variável global como valor de retorno, caso contrário, o avaliador acusará erro.

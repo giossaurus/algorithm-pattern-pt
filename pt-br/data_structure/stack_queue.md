@@ -4,13 +4,13 @@
 
 A característica de uma pilha é último a entrar, primeiro a sair (LIFO).
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack.png)
+![image.png](../../images/stack.png)
 
-Com base nesta propriedade, podemos salvar temporariamente alguns dados e posteriormente colocá-los de volta em ordem quando necessário. É comumente usado em DFS (pesquisa em profundidade).
+Com base nesta propriedade, podemos salvar temporariamente alguns dados e posteriormente colocá-los de volta em ordem quando necessário. É comumente usado em DFS (busca em profundidade).
 
-A fila é geralmente usada em BFS (pesquisa em largura), pesquisando camada por camada.
+A fila é geralmente usada em BFS (busca em largura), buscando camada por camada.
 
-## Stack
+## Pilha
 
 [min-stack](https://leetcode-cn.com/problems/min-stack/)
 
@@ -81,13 +81,13 @@ func (this *MinStack) GetMin() int {
  */
 ```
 
-[avaliar-notação polonesa reversa](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+[evaluate-reverse-polish-notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
 
 > **Avaliação da notação polonesa reversa** > **Entrada:** `["2", "1", "+", "3", "*"]` > **Saída:** 9
 >
 > **Explicação:** `((2 + 1) * 3) = 9`
 
-Ideia: Use uma pilha para salvar os elementos originais; quando um operador for encontrado, pop e calcule e, em seguida, empurre o resultado de volta, repetindo esse processo.
+Ideia: Use uma pilha para salvar os elementos originais; quando encontrar um operador, faça pop e calcule; depois faça push do resultado, repetindo esse processo.
 
 ```go
 func evalRPN(tokens []string) int {
@@ -177,7 +177,7 @@ func decodeString(s string) string {
 }
 ```
 
-Modelo para pesquisa recursiva DFS usando uma pilha
+Template de busca recursiva DFS usando uma pilha
 
 ```go
 boolean DFS(int root, int target) {
@@ -199,9 +199,9 @@ boolean DFS(int root, int target) {
 }
 ```
 
-[travessia em ordem de árvore binária](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+[binary-tree-inorder-traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
 
-> Dada uma árvore binária, retorne sua travessia *em ordem*.
+> Dada uma árvore binária, retorne seu percurso *em ordem*.
 
 ```go
 // Idea: use a stack to save the already-visited elements, so we can backtrack along the original path
@@ -228,7 +228,7 @@ func inorderTraversal(root *TreeNode) []int {
 
 [clone-graph](https://leetcode-cn.com/problems/clone-graph/)
 
-> Dada uma referência a um nó em um gráfico conectado não direcionado, retorne uma cópia profunda (clone) do gráfico.
+> Dada uma referência a um nó em um grafo conexo não direcionado, retorne uma cópia profunda (clone) do grafo.
 
 ```go
 func cloneGraph(node *Node) *Node {
@@ -258,11 +258,11 @@ func clone(node *Node,visited map[*Node]*Node)*Node{
 }
 ```
 
-[número de ilhas](https://leetcode-cn.com/problems/number-of-islands/)
+[number-of-islands](https://leetcode-cn.com/problems/number-of-islands/)
 
 > Dada uma grade 2D composta por '1' (terra) e '0' (água), conte o número de ilhas. Uma ilha é cercada por água e é formada pela conexão de terras adjacentes horizontal ou verticalmente. Você pode assumir que todas as quatro bordas da grade estão cercadas por água.
 
-Ideia: Percorra as possibilidades através da pesquisa em profundidade (nota: marque os elementos visitados).
+Ideia: Percorra as possibilidades através da busca em profundidade (nota: marque os elementos visitados).
 
 ```go
 
@@ -290,18 +290,18 @@ func dfs(grid [][]byte,i,j int)int{
 }
 ```
 
-[maior retângulo no histograma](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+[largest-rectangle-in-histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 
 > Dados _n_ inteiros não negativos representando as alturas das barras em um histograma, onde cada barra é adjacente às outras e tem uma largura de 1.
 > Encontre o maior retângulo que pode ser delineado no histograma.
 
-Idea: Calcular a área com a barra atual como altura; isto é, reduz-se a encontrar os valores mais próximos à esquerda e à direita que são menores que o valor atual.
+Ideia: calcule a área usando a barra atual como altura; ou seja, o problema se reduz a encontrar, à esquerda e à direita, os valores mais próximos que são menores que o valor atual.
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack_rain.png)
+![image.png](../../images/stack_rain.png)
 
-Use uma pilha para salvar os elementos do lado esquerdo que são menores que o atual valor.
+Use uma pilha para salvar os elementos do lado esquerdo que são menores que o valor atual.
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack_rain2.png)
+![image.png](../../images/stack_rain2.png)
 
 ```go
 func largestRectangleArea(heights []int) int {
@@ -347,9 +347,9 @@ func Max(a, b int) int {
 
 Comumente usado em BFS (busca em largura).
 
-[implementar fila usando pilhas](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+[implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 
-> Implementar uma fila usando pilhas.
+> Implemente uma fila usando pilhas.
 
 ```go
 type MyQueue struct {
@@ -423,7 +423,7 @@ func (this *MyQueue) Empty() bool {
  */
 ```
 
-Traversal de ordem de nível de árvore binária
+Percurso por nível em árvore binária
 
 ```go
 func levelOrder(root *TreeNode) [][]int {
@@ -457,7 +457,7 @@ func levelOrder(root *TreeNode) [][]int {
 }
 ```
 
-[01-matriz](https://leetcode-cn.com/problems/01-matrix/)
+[01-matrix](https://leetcode-cn.com/problems/01-matrix/)
 
 > Dada uma matriz composta de 0s e 1s, encontre a distância de cada elemento até o 0.
 > A distância entre dois elementos adjacentes é 1.
@@ -515,18 +515,18 @@ func updateMatrix(matrix [][]int) [][]int {
 
 - Familiarize-se com os casos de uso de pilhas
  - Último a entrar, primeiro a sair; salvando valores temporários
- - Usando uma pilha para DFS (pesquisa em profundidade)
+ - Usando uma pilha para DFS (busca em profundidade)
 - Familiarize-se com os casos de uso de filas
- - Usando uma fila para BFS (pesquisa em largura)
+ - Usando uma fila para BFS (busca em largura)
 
 ## Exercícios
 
 - [ ] [min-stack](https://leetcode-cn.com/problems/min-stack/)
-- [ ] [avaliar notação polonesa reversa](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
-- [] [string de decodificação](https://leetcode-cn.com/problems/decode-string/)
-- [] [travessia de ordem de árvore binária](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
-- [] [gráfico clone](https://leetcode-cn.com/problems/clone-graph/)
-- [ ] [número de ilhas](https://leetcode-cn.com/problems/number-of-islands/)
-- [ ] [maior retângulo no histograma](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
-- [ ] [implementar fila usando pilhas](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
-- [ ] [01-matriz](https://leetcode-cn.com/problems/01-matrix/)
+- [ ] [evaluate-reverse-polish-notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+- [ ] [decode-string](https://leetcode-cn.com/problems/decode-string/)
+- [ ] [binary-tree-inorder-traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+- [ ] [clone-graph](https://leetcode-cn.com/problems/clone-graph/)
+- [ ] [number-of-islands](https://leetcode-cn.com/problems/number-of-islands/)
+- [ ] [largest-rectangle-in-histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+- [ ] [implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+- [ ] [01-matrix](https://leetcode-cn.com/problems/01-matrix/)

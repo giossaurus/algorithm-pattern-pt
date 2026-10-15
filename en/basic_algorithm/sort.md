@@ -91,11 +91,11 @@ A perfect binary tree represented by an array (complete binary tree)
 
 > Perfect binary tree VS other binary trees
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/tree_type.png)
+![image.png](../../images/tree_type.png)
 
 [Animated demonstration](https://www.bilibili.com/video/av18980178/)
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/heap.png)
+![image.png](../../images/heap.png)
 
 Core code
 

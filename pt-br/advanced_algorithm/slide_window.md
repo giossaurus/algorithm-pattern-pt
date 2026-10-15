@@ -44,7 +44,7 @@ As partes que precisam ser alteradas
 
 ## Exemplos
 
-[substring-janela-mínima](https://leetcode-cn.com/problems/minimum-window-substring/)
+[minimum-window-substring](https://leetcode-cn.com/problems/minimum-window-substring/)
 
 > Dadas uma string S e uma string T, encontre a substring mínima em S que contém todas as letras de T.
 
@@ -107,7 +107,7 @@ func minWindow(s string, t string) string {
 }
 ```
 
-[permutação em string](https://leetcode-cn.com/problems/permutation-in-string/)
+[permutation-in-string](https://leetcode-cn.com/problems/permutation-in-string/)
 
 > Dadas duas strings **s1** e **s2**, escreva uma função para determinar se **s2** contém uma permutação de **s1**.
 
@@ -151,7 +151,7 @@ func checkInclusion(s1 string, s2 string) bool {
 
 ```
 
-[encontre todos os anagramas em uma string](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+[find-all-anagrams-in-a-string](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
 
 > Dada uma string **s** e uma string não vazia **p**, encontre todas as substrings em **s** que sejam anagramas de **p** e retorne os índices iniciais dessas substrings.
 
@@ -195,9 +195,9 @@ func findAnagrams(s string, p string) []int {
 }
 ```
 
-[substring mais longa sem caracteres repetidos](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+[longest-substring-without-repeating-characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
 
-> Dada uma string, encontre o comprimento da substring mais longa sem repetir caracteres.
+> Dada uma string, encontre o comprimento da substring mais longa sem caracteres repetidos.
 > Exemplo 1:
 >
 > Entrada: "abcabcbb"
@@ -239,16 +239,16 @@ func max(a,b int)int{
 
 ## Resumo
 
-- Semelhante aos problemas de dois ponteiros, é mais como uma versão atualizada de dois ponteiros. O ponto central da janela deslizante é manter um conjunto de janelas e um processo baseado nesse conjunto de janelas.
+- Semelhante aos problemas de dois ponteiros; é como uma versão aprimorada da técnica de dois ponteiros. O ponto central da janela deslizante é manter um conjunto que representa a janela e processar com base nele.
 - Etapas principais
- - mover para a direita para a direita
+ - mover right para a direita
  - encolher
- - mover para a esquerda para a direita
+ - mover left para a direita
  - calcular o resultado
 
 ## Exercícios
 
-- [ ] [substring de janela mínima](https://leetcode-cn.com/problems/minimum-window-substring/)
-- [] [permutação em string](https://leetcode-cn.com/problems/permutation-in-string/)
-- [] [encontrar todos os anagramas em uma string](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
-- [] [substring mais longa sem caracteres repetidos](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+- [ ] [minimum-window-substring](https://leetcode-cn.com/problems/minimum-window-substring/)
+- [ ] [permutation-in-string](https://leetcode-cn.com/problems/permutation-in-string/)
+- [ ] [find-all-anagrams-in-a-string](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+- [ ] [longest-substring-without-repeating-characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)

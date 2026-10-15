@@ -1,23 +1,23 @@
-# Pesquisa binária
+# Busca binária
 
-## Modelo de pesquisa binária
+## Template de busca binária
 
-Dado um **array classificado** e um valor alvo, encontre o índice da primeira/última/qualquer ocorrência; retorne -1 se não aparecer.
+Dado um **array ordenado** e um valor alvo, encontre o índice da primeira/última/qualquer ocorrência; retorne -1 se não aparecer.
 
-Quatro elementos principais do modelo:
+Quatro elementos principais do template:
 
 - 1. Inicialização: start=0, end=len-1
 - 2. Condição de saída do loop: start + 1 < end
-- 3. Compare o ponto médio com o destino: A[mid] ==, <, > target
-- 4. Verifique se os dois elementos finais correspondem: A[início], A[fim] ? target
+- 3. Compare o ponto médio com o alvo: A[mid] ==, <, > target
+- 4. Verifique se os dois elementos finais correspondem: A[start], A[end] ? target
 
-A complexidade do tempo é O(logn). O caso de uso típico é pesquisar em uma matriz classificada.
+A complexidade de tempo é O(logn). O caso de uso típico é buscar em um array ordenado.
 
 Exemplo típico:
 
-[pesquisa binária](https://leetcode-cn.com/problems/binary-search/)
+[binary-search](https://leetcode-cn.com/problems/binary-search/)
 
-> Dada uma matriz `nums` de n elementos classificados em ordem crescente e um valor alvo `target`, escreva uma função que procure `target` em ZZPROTEGIDO4ZZ. Se o valor alvo existir, retorne seu índice; caso contrário, retorne -1.
+> Dado um array `nums` com n elementos em ordem crescente e um valor alvo `target`, escreva uma função que procure `target` em `nums`. Se o valor alvo existir, retorne seu índice; caso contrário, retorne -1.
 
 ```go
 // The most commonly used binary search template
@@ -48,15 +48,15 @@ func search(nums []int, target int) int {
 }
 ```
 
-A maioria dos problemas de pesquisa binária pode usar este modelo e, em seguida, adicionar um pouco de lógica especial.
+A maioria dos problemas de busca binária pode usar este template e, em seguida, adicionar um pouco de lógica especial.
 
-Existem também alguns outros modelos de pesquisa binária, conforme mostrado abaixo. Na maioria dos cenários, o modelo nº 3 pode resolver o problema e também pode encontrar a posição da primeira/última ocorrência, tornando-o mais amplamente aplicável.
+Existem também outros templates de busca binária, conforme mostrado abaixo. Na maioria dos cenários, o template nº 3 pode resolver o problema e também pode encontrar a posição da primeira/última ocorrência, tornando-o mais amplamente aplicável.
 
-![binary_search_template](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/binary_search_template.png)
+![binary_search_template](../../images/binary_search_template.png)
 
-Portanto, basta usar o modelo nº 3. Para uma comparação detalhada, consulte este artigo: [Modelo de pesquisa binária](https://leetcode-cn.com/explore/learn/card/binary-search/212/template-analysis/847/)
+Portanto, basta usar o template nº 3. Para uma comparação detalhada, consulte este artigo: [Template de busca binária](https://leetcode-cn.com/explore/learn/card/binary-search/212/template-analysis/847/)
 
-Se for a pesquisa binária mais simples - onde você não precisa encontrar a primeira ou a última posição, ou não há elementos duplicados - você pode usar o modelo nº 1, o que torna o código mais conciso.
+Se for a busca binária mais simples - onde você não precisa encontrar a primeira ou a última posição, ou não há elementos duplicados - você pode usar o template nº 1, o que torna o código mais conciso.
 
 ```go
 // More convenient when searching without duplicate elements
@@ -84,10 +84,10 @@ func search(nums []int, target int) int {
 
 ### [search-for-range](https://www.lintcode.com/problem/search-for-a-range/description)
 
-> Dada uma matriz classificada contendo n inteiros, encontre as posições inicial e final de um determinado valor alvo `target`.
-> Se o valor alvo não estiver na matriz, retorne `[-1, -1]`.
+> Dado um array ordenado contendo n inteiros, encontre as posições inicial e final de um determinado valor alvo `target`.
+> Se o valor alvo não estiver no array, retorne `[-1, -1]`.
 
-Ideia: o ponto principal é encontrar o índice do primeiro `target` e o índice do último `target`, então use duas pesquisas binárias para encontrar a primeira e a última posições, respectivamente.
+Ideia: o ponto principal é encontrar o índice do primeiro `target` e o índice do último `target`, então use duas buscas binárias para encontrar a primeira e a última posições, respectivamente.
 
 ```go
 func searchRange (A []int, target int) []int {
@@ -147,7 +147,7 @@ func searchRange (A []int, target int) []int {
 
 ### [search-insert-position](https://leetcode-cn.com/problems/search-insert-position/)
 
-> Dado um array classificado e um valor alvo, encontre o valor alvo no array e retorne seu índice. Caso o valor alvo não exista no array, retorne a posição onde ele seria inserido na ordem.
+> Dado um array ordenado e um valor alvo, encontre o valor alvo no array e retorne seu índice. Caso o valor alvo não exista no array, retorne a posição onde ele seria inserido na ordem.
 
 ```go
 func searchInsert(nums []int, target int) int {
@@ -180,7 +180,7 @@ func searchInsert(nums []int, target int) int {
 
 > Escreva um algoritmo eficiente para determinar se um valor alvo existe em uma matriz m x n. A matriz possui as seguintes propriedades:
 >
-> - Os números inteiros em cada linha são classificados em ordem crescente da esquerda para a direita.
+> - Os números inteiros em cada linha estão em ordem crescente da esquerda para a direita.
 > - O primeiro número inteiro de cada linha é maior que o último número inteiro da linha anterior.
 
 ```go
@@ -239,7 +239,7 @@ func firstBadVersion(n int) int {
 
 ### [find-minimum-in-rotated-sorted-array](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
 
-> Suponha que uma matriz classificada em ordem crescente seja girada em algum pivô desconhecido antecipadamente (por exemplo, a matriz [0,1,2,4,5,6,7] pode se tornar [4,5,6,7,0,1,2]).
+> Suponha que um array ordenado em ordem crescente tenha sido rotacionado em um pivô desconhecido (por exemplo, o array [0,1,2,4,5,6,7] pode se tornar [4,5,6,7,0,1,2]).
 > Encontre o elemento mínimo.
 
 ```go
@@ -269,8 +269,8 @@ func findMin(nums []int) int {
 
 ### [find-minimum-in-rotated-sorted-array-ii](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/)
 
-> Suponha que uma matriz classificada em ordem crescente seja girada em algum pivô desconhecido antecipadamente
-> (por exemplo, a matriz [0,1,2,4,5,6,7] pode se tornar [4,5,6,7,0,1,2]).
+> Suponha que um array ordenado em ordem crescente tenha sido rotacionado em um pivô desconhecido
+> (por exemplo, o array [0,1,2,4,5,6,7] pode se tornar [4,5,6,7,0,1,2]).
 > Encontre o elemento mínimo. (Pode conter elementos duplicados.)
 
 ```go
@@ -306,9 +306,9 @@ func findMin(nums []int) int {
 
 ### [search-in-rotated-sorted-array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
 
-> Suponha que uma matriz classificada em ordem crescente seja girada em algum pivô desconhecido antecipadamente.
-> (Por exemplo, a matriz [0,1,2,4,5,6,7] pode se tornar [4,5,6,7,0,1,2].)
-> Pesquise um determinado valor alvo; se o valor alvo existir no array, retorne seu índice, caso contrário, retorne -1.
+> Suponha que um array ordenado em ordem crescente tenha sido rotacionado em um pivô desconhecido.
+> (Por exemplo, o array [0,1,2,4,5,6,7] pode se tornar [4,5,6,7,0,1,2].)
+> Busque um valor alvo; se o valor alvo existir no array, retorne seu índice, caso contrário, retorne -1.
 > Você pode assumir que não há elementos duplicados no array.
 
 ```go
@@ -355,9 +355,9 @@ Nota:
 
 ### [search-in-rotated-sorted-array-ii](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/)
 
-> Suponha que uma matriz classificada em ordem crescente seja girada em algum pivô desconhecido antecipadamente.
-> (Por exemplo, a matriz [0,0,1,2,2,5,6] pode se tornar [2,5,6,0,0,1,2].)
-> Escreva uma função para determinar se um determinado valor alvo existe na matriz. Retorne verdadeiro se existir, caso contrário, retorne falso. (Pode conter elementos duplicados.)
+> Suponha que um array ordenado em ordem crescente tenha sido rotacionado em um pivô desconhecido.
+> (Por exemplo, o array [0,0,1,2,2,5,6] pode se tornar [2,5,6,0,0,1,2].)
+> Escreva uma função para determinar se um determinado valor alvo existe no array. Retorne verdadeiro se existir, caso contrário, retorne falso. (Pode conter elementos duplicados.)
 
 ```go
 func search(nums []int, target int) bool {
@@ -404,20 +404,20 @@ func search(nums []int, target int) bool {
 
 ## Resumo
 
-Os quatro elementos principais da pesquisa binária (memorizar e entender):
+Os quatro elementos principais da busca binária (memorizar e entender):
 
-- 1. Inicialização: início=0, fim=len-1
-- 2. Condição de saída do loop: início + 1 < fim
+- 1. Inicialização: start=0, end=len-1
+- 2. Condição de saída do loop: start + 1 < end
 - 3. Compare o ponto médio com o alvo: A[mid] ==, <, > target
-- 4. Verifique se os dois elementos finais correspondem: A[start], A[end] ? alvo
+- 4. Verifique se os dois elementos finais correspondem: A[start], A[end] ? target
 
 ## Exercícios
 
-- [ ] [busca por intervalo](https://www.lintcode.com/problem/search-for-a-range/description)
-- [ ] [pesquisa-inserir posição](https://leetcode-cn.com/problems/search-insert-position/)
-- [ ] [pesquisar-a-matriz 2d](https://leetcode-cn.com/problems/search-a-2d-matrix/)
-- [ ] [primeira versão ruim](https://leetcode-cn.com/problems/first-bad-version/)
-- [ ] [encontrar o mínimo na matriz classificada girada](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
-- [ ] [encontrar mínimo em matriz classificada girada-ii](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/)
-- [ ] [pesquisar em matriz classificada girada](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
-- [ ] [pesquisar em matriz classificada girada-ii](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/)
+- [ ] [search-for-range](https://www.lintcode.com/problem/search-for-a-range/description)
+- [ ] [search-insert-position](https://leetcode-cn.com/problems/search-insert-position/)
+- [ ] [search-a-2d-matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)
+- [ ] [first-bad-version](https://leetcode-cn.com/problems/first-bad-version/)
+- [ ] [find-minimum-in-rotated-sorted-array](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
+- [ ] [find-minimum-in-rotated-sorted-array-ii](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+- [ ] [search-in-rotated-sorted-array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)
+- [ ] [search-in-rotated-sorted-array-ii](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/)

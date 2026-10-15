@@ -2,18 +2,18 @@
 
 ## Conceitos-chave
 
-### Travessia de árvore binária
+### Percurso em árvore binária
 
-**Travessia de pré-encomenda**: **visite o nó raiz primeiro**, depois pré-ordene-percorra a subárvore esquerda e, em seguida, pré-ordene-percorra a subárvore direita
-**Travessia em ordem**: primeiro percorra em ordem a subárvore esquerda, **então visite o nó raiz**, então atravesse em ordem a subárvore direita
-**Travessia de pós-ordem**: primeiro percorra pós-ordem a subárvore esquerda, depois percorra pós-ordem a subárvore direita, **então visite o nó raiz**
+**Percurso em pré-ordem (preorder)**: **visite primeiro o nó raiz**, depois percorra em pré-ordem a subárvore esquerda e, em seguida, a subárvore direita
+**Percurso em ordem (inorder)**: primeiro percorra em ordem a subárvore esquerda, **depois visite o nó raiz** e, em seguida, percorra em ordem a subárvore direita
+**Percurso em pós-ordem (postorder)**: primeiro percorra em pós-ordem a subárvore esquerda, depois a subárvore direita e, **por fim, visite o nó raiz**
 
 Notas
 
-- A ordem em que a raiz é visitada determina qual travessia ela é
-- A subárvore esquerda sempre leva prioridade sobre a subárvore certa
+- A ordem em que a raiz é visitada determina qual percurso é
+- A subárvore esquerda sempre tem prioridade sobre a subárvore direita
 
-#### Pré-encomenda (recursiva)
+#### Pré-ordem (recursiva)
 
 ```go
 func preorderTraversal(root *TreeNode)  {
@@ -27,7 +27,7 @@ func preorderTraversal(root *TreeNode)  {
 }
 ```
 
-#### Pré-encomenda (iterativa)
+#### Pré-ordem (iterativa)
 
 ```go
 // V3: iterative traversal
@@ -114,9 +114,9 @@ func postorderTraversal(root *TreeNode) []int {
 
 Notas
 
-- A ideia central: o nó raiz deve ser exibido somente depois que o nó direito for exibido
+- A ideia central: o nó raiz só deve ser desempilhado depois que o nó direito for desempilhado
 
-#### Pesquisa em profundidade DFS - de cima para baixo
+#### DFS (busca em profundidade) - de cima para baixo
 
 ```go
 type TreeNode struct {
@@ -142,7 +142,7 @@ func dfs(root *TreeNode, result *[]int) {
 }
 ```
 
-#### Pesquisa em profundidade DFS - de baixo para cima (dividir e conquistar)
+#### DFS (busca em profundidade) - de baixo para cima (dividir para conquistar)
 
 ```go
 // V2: traversal using divide and conquer
@@ -169,9 +169,9 @@ func divideAndConquer(root *TreeNode) []int {
 
 Notas:
 
-> A diferença entre DFS (de cima para baixo) e dividir e conquistar: o primeiro geralmente passa o resultado final por meio de um parâmetro de ponteiro, enquanto o último geralmente retorna resultados de recursão e os mescla no final
+> A diferença entre DFS (de cima para baixo) e dividir para conquistar: o primeiro geralmente passa o resultado final por um parâmetro ponteiro, enquanto o segundo geralmente retorna os resultados da recursão e os combina no final
 
-#### BFS Level-Order Traversal
+#### BFS: percurso por nível
 
 ```go
 func levelOrder(root *TreeNode) [][]int {
@@ -205,17 +205,17 @@ func levelOrder(root *TreeNode) [][]int {
 }
 ```
 
-### Aplicações de divisão e conquista
+### Aplicações de dividir para conquistar
 
 Processe as partes separadamente primeiro e depois mescle os resultados
 
 Cenários aplicáveis
 
 - Quicksort
-- Mesclar classificação
+- Merge sort
 - Problemas relacionados à árvore binária
 
-Dividir e conquistar modelo
+Template de dividir para conquistar
 
 - Condição de retorno de recursão
 - Processar cada parte
@@ -264,7 +264,7 @@ func divideAndConquer(root *TreeNode) []int {
 }
 ```
 
-#### Mesclar classificação
+#### Merge sort
 
 ```go
 func MergeSort(nums []int) []int {
@@ -306,7 +306,7 @@ func merge(left, right []int) (result []int) {
 
 Notas
 
-> A recursão precisa retornar resultados para mesclagem
+> A recursão precisa retornar os resultados para que eles sejam combinados
 
 #### Quicksort
 
@@ -349,18 +349,18 @@ func swap(nums []int, i, j int) {
 
 Notas:
 
-> Como as trocas de classificação rápida estão em vigor, não há etapa de mesclagem
-> Os índices passados ​​​​devem ser índices válidos (por exemplo, 0, comprimento 1, etc.); sair dos limites pode causar um travamento
+> Como o quicksort faz as trocas in-place, não há etapa de merge
+> Os índices passados devem ser índices válidos (por exemplo, 0, length-1 etc.); sair dos limites pode causar um crash
 
 Exemplos de problemas comuns
 
-#### profundidade máxima da árvore binária
+#### maximum-depth-of-binary-tree
 
-[profundidade máxima da árvore binária](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+[maximum-depth-of-binary-tree](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 
-> Dada uma árvore binária, encontre seu máximo profundidade.
+> Dada uma árvore binária, encontre sua profundidade máxima.
 
-Ideia: dividir e conquistar
+Ideia: dividir para conquistar
 
 ```go
 func maxDepth(root *TreeNode) int {
@@ -380,14 +380,14 @@ func maxDepth(root *TreeNode) int {
 }
 ```
 
-#### árvore binária balanceada
+#### balanced-binary-tree
 
-[árvore binária balanceada](https://leetcode-cn.com/problems/balanced-binary-tree/)
+[balanced-binary-tree](https://leetcode-cn.com/problems/balanced-binary-tree/)
 
-> Dada uma árvore binária, determine se ela é uma árvore binária com altura balanceada.
+> Dada uma árvore binária, determine se ela é balanceada em altura.
 
-Ideia: dividir e conquistar - o lado esquerdo está balanceado && o lado direito está balanceado && a diferença de altura entre esquerda e direita <= 1.
-Como precisamos retornar se está balanceado e a altura, retornamos dois valores ou combinamos os dois valores,
+Ideia: dividir para conquistar - o lado esquerdo está balanceado && o lado direito está balanceado && a diferença de altura entre esquerda e direita <= 1.
+Como precisamos retornar tanto se ela está balanceada quanto a altura, retornamos dois valores ou combinamos os dois em um só,
 portanto, usamos -1 para indicar não balanceado e >0 para indicar a altura da árvore (ambiguidade: uma variável carregando dois significados).
 
 ```go
@@ -420,13 +420,13 @@ Nota
 
 > Na prática geral de engenharia, o resultado é retornado por meio de duas variáveis; não é recomendado usar uma variável para representar dois significados
 
-#### árvore binária-máximo-caminho-soma
+#### binary-tree-maximum-path-sum
 
-[árvore binária-máximo-caminho-soma](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+[binary-tree-maximum-path-sum](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
 
-> Dada uma árvore binária **não vazia**, retorne seu caminho máximo soma.
+> Dada uma árvore binária **não vazia**, retorne a soma máxima de caminho.
 
-Ideia: dividir e conquistar, dividir em três casos: a subárvore esquerda tem a maior soma máxima de caminho, a subárvore direita tem a maior soma máxima de caminho, ou ambas as subárvores mais a raiz fornecem a maior soma. Precisamos manter duas variáveis: uma para salvar a soma máxima do caminho da subárvore e outra para salvar a soma de ambos os lados mais a raiz, então comparar essas duas variáveis ​​e escolher o máximo.
+Ideia: dividir para conquistar, dividir em três casos: a subárvore esquerda tem a maior soma máxima de caminho, a subárvore direita tem a maior soma máxima de caminho, ou ambas as subárvores mais a raiz fornecem a maior soma. Precisamos manter duas variáveis: uma para salvar a soma máxima do caminho da subárvore e outra para salvar a soma de ambos os lados mais a raiz, então comparar essas duas variáveis e escolher o máximo.
 
 ```go
 type ResultType struct {
@@ -470,13 +470,13 @@ func max(a,b int) int {
 }
 ```
 
-#### menor ancestral comum de uma árvore binária
+#### lowest-common-ancestor-of-a-binary-tree
 
-[menor ancestral comum de uma árvore binária](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+[lowest-common-ancestor-of-a-binary-tree](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
-> Dada uma árvore binária, encontre o menor ancestral comum de dois nós especificados no tree.
+> Dada uma árvore binária, encontre o menor ancestral comum de dois nós especificados na árvore.
 
-Ideia: dividir e conquistar — se houver um ancestral comum na subárvore esquerda ou um ancestral comum na subárvore direita, retorne o ancestral dessa subárvore; caso contrário, retorne o nó raiz
+Ideia: dividir para conquistar — se houver um ancestral comum na subárvore esquerda ou um ancestral comum na subárvore direita, retorne o ancestral dessa subárvore; caso contrário, retorne o nó raiz
 
 ```go
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
@@ -508,15 +508,15 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 }
 ```
 
-### Aplicativos de ordem de nível BFS
+### Aplicações de BFS (percurso por nível)
 
-#### travessia de ordem de nível de árvore binária
+#### binary-tree-level-order-traversal
 
-[travessia de ordem de nível de árvore binária](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+[binary-tree-level-order-traversal](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 
-> Dada uma árvore binária, retorne os valores dos nós obtidos por **travessia de ordem de nível**. (ou seja, visitar todos os nós nível por nível, da esquerda para a direita)
+> Dada uma árvore binária, retorne os valores dos nós obtidos por **percurso por nível**. (ou seja, visitar todos os nós nível por nível, da esquerda para a direita)
 
-Ideia: usar uma fila para registrar os elementos de um nível, depois verificar os elementos deste nível e adicionar os elementos do próximo nível à fila (cada número entra e sai uma vez, então a complexidade é O(logN))
+Ideia: usar uma fila para registrar os elementos de um nível, depois verificar os elementos deste nível e adicionar os elementos do próximo nível à fila (cada número entra e sai uma vez, então a complexidade é O(N))
 
 ```go
 func levelOrder(root *TreeNode) [][]int {
@@ -549,13 +549,13 @@ func levelOrder(root *TreeNode) [][]int {
 }
 ```
 
-#### travessia de ordem de nível de árvore binária-ii
+#### binary-tree-level-order-traversal-ii
 
-[travessia de ordem de nível de árvore binária-ii](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
+[binary-tree-level-order-traversal-ii](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
 
-> Dada uma árvore binária, retorne sua travessia de ordem de nível de baixo para cima dos valores dos nós. (ou seja, percorrer do nível dos nós folha até o nível da raiz, nível por nível, da esquerda para a direita)
+> Dada uma árvore binária, retorne o percurso por nível, de baixo para cima, dos valores dos nós. (ou seja, do nível das folhas até o nível da raiz, nível por nível, da esquerda para a direita)
 
-Ideia: com base no percurso de ordem de nível, basta inverter o resultado
+Ideia: com base no percurso por nível, basta inverter o resultado
 
 ```go
 func levelOrderBottom(root *TreeNode) [][]int {
@@ -599,11 +599,11 @@ func levelOrder(root *TreeNode) [][]int {
 }
 ```
 
-#### travessia de ordem de nível de ziguezague de árvore binária
+#### binary-tree-zigzag-level-order-traversal
 
-[travessia de ordem de nível de ziguezague de árvore binária](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+[binary-tree-zigzag-level-order-traversal](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
 
-> Dada uma árvore binária, retorne a travessia de ordem de nível em ziguezague de seus valores de nó. Travessia em Z
+> Dada uma árvore binária, retorne o percurso por nível em ziguezague dos valores dos nós. Percurso em Z
 
 ```go
 func zigzagLevelOrder(root *TreeNode) [][]int {
@@ -645,15 +645,17 @@ func reverse(nums []int) {
 }
 ```
 
-### Aplicativos de árvore de pesquisa binária
+### Aplicações de árvore binária de busca
 
-#### Validate-binary-search-tree
+#### validate-binary-search-tree
 
 [validate-binary-search-tree](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 
-> Dada uma árvore binária, determine se ela é uma árvore de pesquisa binária válida. 1: travessia em ordem, verifique se a lista resultante já está ordenada
+> Dada uma árvore binária, determine se ela é uma árvore binária de busca válida.
 
-Ideia 2: dividir e conquistar, verifique se esquerda MAX <raiz <direita MIN
+Ideia 1: percurso em ordem, verifique se a lista resultante já está ordenada
+
+Ideia 2: dividir para conquistar, verifique se MAX da esquerda < raiz < MIN da direita
 
 ```go
 // v1
@@ -737,11 +739,11 @@ func helper(root *TreeNode) ResultType {
 }
 ```
 
-#### inserir em uma árvore de pesquisa binária
+#### insert-into-a-binary-search-tree
 
-[inserir em uma árvore de pesquisa binária](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+[insert-into-a-binary-search-tree](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
 
-> Dado o nó raiz de uma árvore de pesquisa binária (BST) e um valor para inserir na árvore, insira o valor no BST. Retorne o nó raiz do BST após a inserção.
+> Dado o nó raiz de uma árvore binária de busca (BST) e um valor para inserir na árvore, insira o valor na BST. Retorne o nó raiz da BST após a inserção.
 
 Ideia: encontre o último nó folha que satisfaça a condição de inserção
 
@@ -763,18 +765,18 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 
 ## Resumo
 
-- Domine a travessia de árvore binária recursiva e iterativa
-- Entenda a travessia de pré-ordem DFS e divida e conquiste
-- Entenda a travessia de ordem de nível BFS
+- Domine o percurso recursivo e iterativo em árvore binária
+- Entenda o percurso DFS em pré-ordem e dividir para conquistar
+- Entenda o percurso por nível com BFS
 
 ## Exercícios
 
-- [] [profundidade máxima da árvore binária](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
-- [ ] [árvore binária balanceada](https://leetcode-cn.com/problems/balanced-binary-tree/)
-- [ ] [árvore binária-soma máxima do caminho](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
-- [ ] [menor ancestral comum de uma árvore binária](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
-- [ ] [travessia de ordem de nível de árvore binária](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
-- [ ] [travessia de ordem de nível de árvore binária-ii](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
-- [ ] [árvore binária-zigzag-level-order-traversal](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
-- [ ] [validar-árvore-de-pesquisa-binária](https://leetcode-cn.com/problems/validate-binary-search-tree/)
-- [ ] [inserir-em-uma-árvore-de-pesquisa-binária](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+- [ ] [maximum-depth-of-binary-tree](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+- [ ] [balanced-binary-tree](https://leetcode-cn.com/problems/balanced-binary-tree/)
+- [ ] [binary-tree-maximum-path-sum](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+- [ ] [lowest-common-ancestor-of-a-binary-tree](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+- [ ] [binary-tree-level-order-traversal](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+- [ ] [binary-tree-level-order-traversal-ii](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
+- [ ] [binary-tree-zigzag-level-order-traversal](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+- [ ] [validate-binary-search-tree](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+- [ ] [insert-into-a-binary-search-tree](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)

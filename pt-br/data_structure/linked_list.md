@@ -1,23 +1,23 @@
-# Lista vinculada
+# Lista encadeada
 
 ## Habilidades básicas
 
-Pontos essenciais relacionados a listas vinculadas
+Pontos essenciais relacionados a listas encadeadas
 
-- tratamento de exceções nulas/nulas
-- nó fictício
+- tratamento de null/nil
+- nó dummy
 - ponteiros rápidos e lentos
-- inserir um nó em uma lista vinculada classificada
-- remover um nó de uma lista vinculada
-- reverter um vinculado list
-- mesclando duas listas vinculadas
-- encontrar o nó do meio de uma lista vinculada
+- inserir um nó em uma lista encadeada ordenada
+- remover um nó de uma lista encadeada
+- inverter uma lista encadeada
+- mesclar duas listas encadeadas
+- encontrar o nó do meio de uma lista encadeada
 
 ## Tipos de problemas comuns
 
 ### [remove-duplicates-from-sorted-list](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
 
-> Dada uma lista vinculada classificada, exclua todos os elementos duplicados para que cada elemento apareça apenas uma vez.
+> Dada uma lista encadeada ordenada, exclua todos os elementos duplicados para que cada elemento apareça apenas uma vez.
 
 ```go
 func deleteDuplicates(head *ListNode) *ListNode {
@@ -35,9 +35,9 @@ func deleteDuplicates(head *ListNode) *ListNode {
 
 ### [remove-duplicates-from-sorted-list-ii](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
 
-> Dada uma lista vinculada ordenada, exclua todos os nós que possuem números duplicados, deixando apenas os números da lista original que não aparecem mais de uma vez.
+> Dada uma lista encadeada ordenada, exclua todos os nós que possuem números duplicados, deixando apenas os números da lista original que não aparecem mais de uma vez.
 
-Ideia: o nó principal da lista pode ser excluído, então use um nó fictício para ajudar na exclusão.
+Ideia: o nó head pode ser excluído, então use um nó dummy para ajudar na exclusão.
 
 ```go
 func deleteDuplicates(head *ListNode) *ListNode {
@@ -64,16 +64,16 @@ func deleteDuplicates(head *ListNode) *ListNode {
 }
 ```
 
-Aponta para anotar
+Pontos de atenção
 • A->B->C, exclua B, então A.next = C
-• Use um nó fictício para ajudar na exclusão (para que o nó principal possa mudar)
+• Use um nó dummy para ajudar na exclusão (assim o head pode mudar)
 • Para acessar X.next ou X.value, sempre certifique-se de que X != nil
 
-### [lista vinculada reversa](https://leetcode-cn.com/problems/reverse-linked-list/)
+### [reverse-linked-list](https://leetcode-cn.com/problems/reverse-linked-list/)
 
-> Reverta uma lista vinculada individualmente.
+> Inverta uma lista simplesmente encadeada.
 
-Ideia: use um nó anterior para salvar o ponteiro de avanço e temporário para salvar o ponteiro de retrocesso temporário.
+Ideia: use um nó prev para guardar o ponteiro para trás e um temp para guardar temporariamente o próximo nó.
 
 ```go
 func reverseList(head *ListNode) *ListNode {
@@ -95,9 +95,9 @@ func reverseList(head *ListNode) *ListNode {
 
 ### [reverse-linked-list-ii](https://leetcode-cn.com/problems/reverse-linked-list-ii/)
 
-> Inverta a lista vinculada da posição *m* para *n*. Faça isso de uma só vez.
+> Inverta a lista encadeada da posição *m* até *n*, em uma única passada.
 
-Ideia: primeiro percorra até m, inverta e depois reconecte o resto, prestando atenção ao manuseio do ponteiro.
+Ideia: primeiro percorra até m, inverta e depois reconecte o resto, prestando atenção à manipulação dos ponteiros.
 
 ```go
 func reverseBetween(head *ListNode, m int, n int) *ListNode {
@@ -140,11 +140,11 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 }
 ```
 
-### [mesclar duas listas ordenadas](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+### [merge-two-sorted-lists](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
 
-> Mesclar duas listas vinculadas ascendentes em uma nova lista vinculada ascendente e retorná-la. A nova lista é formada pela junção de todos os nós das duas listas fornecidas.
+> Mescle duas listas encadeadas em ordem crescente em uma nova lista crescente e retorne-a. A nova lista é formada pela junção de todos os nós das duas listas fornecidas.
 
-Ideia: usar uma lista de nós fictícia para conectar cada elemento.
+Ideia: usar um nó dummy para ir conectando cada elemento.
 
 ```go
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
@@ -178,9 +178,9 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 ### [partition-list](https://leetcode-cn.com/problems/partition-list/)
 
-> Dada uma lista vinculada e um valor específico x, particione a lista para que todos os nós menores que *x* venham antes dos nós maiores ou iguais a *x*.
+> Dada uma lista encadeada e um valor específico x, particione a lista para que todos os nós menores que *x* venham antes dos nós maiores ou iguais a *x*.
 
-Ideia: mover nós maiores que x para outra lista vinculada e, em seguida, conectar as duas listas no fim.
+Ideia: mover nós maiores que x para outra lista encadeada e, em seguida, conectar as duas listas no fim.
 
 ```go
 func partition(head *ListNode, x int) *ListNode {
@@ -213,15 +213,15 @@ func partition(head *ListNode, x int) *ListNode {
 }
 ```
 
-Casos de uso para nós fictícios
+Quando usar um nó dummy
 
-> Use um nó fictício quando o nó principal for incerto.
+> Use um nó dummy quando o nó head puder mudar.
 
-### [lista de classificação](https://leetcode-cn.com/problems/sort-list/)
+### [sort-list](https://leetcode-cn.com/problems/sort-list/)
 
-> Classifique uma lista vinculada em *O*(*n* log *n*) complexidade de tempo e espaço constante complexidade.
+> Ordene uma lista encadeada com complexidade de tempo *O*(*n* log *n*) e complexidade de espaço constante.
 
-Ideia: classificação por mesclagem, com localização do ponto médio e operações de mesclagem.
+Ideia: merge sort, encontrando o ponto médio e fazendo o merge das metades.
 
 ```go
 func sortList(head *ListNode) *ListNode {
@@ -285,14 +285,14 @@ func mergeSort(head *ListNode) *ListNode {
 
 Pontos a serem observados
 
-- Para ponteiros rápidos e lentos, verifique se são rápidos e rápidos.Os próximos são nulos
-- Na classificação de mesclagem recursiva, você precisa desconectar o nó do meio
-- O caso base de recursão é quando cabeça é nula ou cabeça.O próximo é nulo
+- Para ponteiros fast e slow, verifique se fast e fast.Next são nil
+- No merge sort recursivo, é preciso desconectar o nó do meio
+- O caso base da recursão é quando head é nil ou head.Next é nil
 
-### [reordenar lista](https://leetcode-cn.com/problems/reorder-list/)
+### [reorder-list](https://leetcode-cn.com/problems/reorder-list/)
 
-> Dada uma lista vinculada individualmente *L*: *L*→*L*→…→*L\_\_n*→*L*
-> Reorganize-a em: *L*→*L\_\_n*→*L*→*L\_\_n*→*L*→*L\_\_n*→…
+> Dada uma lista simplesmente encadeada *L*: *L*<sub>0</sub>→*L*<sub>1</sub>→…→*L*<sub>n-1</sub>→*L*<sub>n</sub>
+> Reorganize-a em: *L*<sub>0</sub>→*L*<sub>n</sub>→*L*<sub>1</sub>→*L*<sub>n-1</sub>→*L*<sub>2</sub>→*L*<sub>n-2</sub>→…
 
 Ideia: encontrar o ponto médio e desconectar, inverter a segunda metade e depois mesclar as duas metades.
 
@@ -365,10 +365,10 @@ func reverseList(head *ListNode) *ListNode {
 
 ### [linked-list-cycle](https://leetcode-cn.com/problems/linked-list-cycle/)
 
-> Dada uma lista vinculada, determine se ela possui um ciclo.
+> Dada uma lista encadeada, determine se ela possui um ciclo.
 
-Ideia: ponteiros rápidos e lentos. Se os ponteiros rápido e lento se igualarem, haverá um ciclo. Prova: se houver um ciclo, a distância entre os ponteiros rápido e lento diminui em 1 a cada passo.
-![fast_slow_linked_list](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/fast_slow_linked_list.png)
+Ideia: ponteiros rápidos e lentos. Se os ponteiros rápido e lento se encontrarem, há um ciclo. Prova: se houver um ciclo, a distância entre eles diminui em 1 a cada passo.
+![fast_slow_linked_list](../../images/fast_slow_linked_list.png)
 
 ```go
 func hasCycle(head *ListNode) bool {
@@ -392,10 +392,10 @@ func hasCycle(head *ListNode) bool {
 
 ### [linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 
-> Dada uma lista vinculada, retorne o primeiro nó onde o ciclo começa. Se a lista não tiver ciclo, retorne `null`.
+> Dada uma lista encadeada, retorne o primeiro nó onde o ciclo começa. Se a lista não tiver ciclo, retorne `null`.
 
-Ideia: ponteiros rápidos e lentos. Depois que os ponteiros rápidos e lentos se encontrarem, mova o ponteiro lento de volta para a cabeça e, em seguida, mova os ponteiros rápidos e lentos juntos no mesmo ritmo; o ponto de encontro é a entrada do ciclo.
-![cycled_linked_list](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/cycled_linked_list.png)
+Ideia: ponteiros rápidos e lentos. Depois que os ponteiros rápidos e lentos se encontrarem, mova o ponteiro lento de volta para o head e, em seguida, mova os ponteiros rápidos e lentos juntos no mesmo ritmo; o ponto de encontro é a entrada do ciclo.
+![cycled_linked_list](../../images/cycled_linked_list.png)
 
 ```go
 func detectCycle(head *ListNode) *ListNode {
@@ -428,7 +428,7 @@ func detectCycle(head *ListNode) *ListNode {
 Armadilhas
 
 - Ao comparar ponteiros, compare os objetos diretamente; não compare por valor, pois a lista pode conter valores duplicados
-- Após o primeiro encontro, o ponteiro rápido precisa partir do próximo nó e se mover em ritmo constante junto com o ponteiro principal
+- Após o primeiro encontro, o ponteiro rápido precisa partir do próximo nó e se mover em ritmo constante junto com o ponteiro que parte do head
 
 Outra abordagem é fast=head, slow=head
 
@@ -461,12 +461,12 @@ func detectCycle(head *ListNode) *ListNode {
 
 A diferença entre essas duas abordagens é que **fast=head.Next geralmente é usado com mais frequência**, porque permite conhecer o nó antes do ponto médio, que pode ser usado para operações como exclusão.
 
-- Se rápido for inicializado na cabeça.Em seguida, o ponto médio estará em lento.Next
-- Se rápido for inicializado na cabeça, o ponto médio estará em slow
+- Se fast for inicializado em head.Next, o ponto médio estará em slow.Next
+- Se fast for inicializado em head, o ponto médio estará em slow
 
 ### [palindrome-linked-list](https://leetcode-cn.com/problems/palindrome-linked-list/)
 
-> Determine se uma lista vinculada é um palíndromo.
+> Determine se uma lista encadeada é um palíndromo.
 
 ```go
 func isPalindrome(head *ListNode) bool {
@@ -515,10 +515,10 @@ func reverse(head *ListNode)*ListNode{
 }
 ```
 
-### [copiar lista com ponteiro aleatório](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
+### [copy-list-with-random-pointer](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
 
-> Dada uma lista vinculada onde cada nó contém um ponteiro aleatório adicional que pode apontar para qualquer nó na lista ou para nulo,
-> retornar uma cópia profunda desta lista.
+> Dada uma lista encadeada onde cada nó contém um ponteiro aleatório adicional que pode apontar para qualquer nó na lista ou para nulo,
+> retorne uma cópia profunda (deep copy) desta lista.
 
 Ideia: 1. usar uma tabela hash para armazenar ponteiros; 2. coloque o nó copiado logo após o nó original.
 
@@ -560,28 +560,28 @@ func copyRandomList(head *Node) *Node {
 
 ## Resumo
 
-Alguns pontos que você deve dominar para listas vinculadas. Através dos problemas práticos abaixo, você será capaz de lidar com a maioria dos problemas de lista vinculada com facilidade ~
+Alguns pontos que você deve dominar para listas encadeadas. Através dos problemas práticos abaixo, você será capaz de lidar com a maioria dos problemas de lista encadeada com facilidade ~
 
-- tratamento de exceção nula/nula
-- nó fictício
+- tratamento de null/nil
+- nó dummy
 - ponteiros rápidos e lentos
-- inserir um nó em uma lista vinculada classificada
-- remover um nó de uma lista vinculada
-- reverter uma lista vinculada
-- mesclar dois vinculados listas
-- encontrar o nó do meio de uma lista vinculada
+- inserir um nó em uma lista encadeada ordenada
+- remover um nó de uma lista encadeada
+- inverter uma lista encadeada
+- mesclar duas listas encadeadas
+- encontrar o nó do meio de uma lista encadeada
 
 ## Prática
 
-- [ ] [remover-duplicados-da-lista-classificada](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
-- [ ] [remover-duplicados-da-lista-classificada-ii](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
-- [ ] [lista vinculada reversa](https://leetcode-cn.com/problems/reverse-linked-list/)
-- [ ] [lista vinculada reversa-ii](https://leetcode-cn.com/problems/reverse-linked-list-ii/)
-- [ ] [mesclar duas listas classificadas](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
-- [ ] [lista de partições](https://leetcode-cn.com/problems/partition-list/)
-- [ ] [lista de classificação](https://leetcode-cn.com/problems/sort-list/)
-- [ ] [lista de reordenação](https://leetcode-cn.com/problems/reorder-list/)
-- [ ] [ciclo de lista vinculada](https://leetcode-cn.com/problems/linked-list-cycle/)
-- [ ] [ciclo de lista vinculada-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
-- [] [lista vinculada de palíndromo](https://leetcode-cn.com/problems/palindrome-linked-list/)
-- [] [copiar lista com ponteiro aleatório](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)
+- [ ] [remove-duplicates-from-sorted-list](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+- [ ] [remove-duplicates-from-sorted-list-ii](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
+- [ ] [reverse-linked-list](https://leetcode-cn.com/problems/reverse-linked-list/)
+- [ ] [reverse-linked-list-ii](https://leetcode-cn.com/problems/reverse-linked-list-ii/)
+- [ ] [merge-two-sorted-lists](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+- [ ] [partition-list](https://leetcode-cn.com/problems/partition-list/)
+- [ ] [sort-list](https://leetcode-cn.com/problems/sort-list/)
+- [ ] [reorder-list](https://leetcode-cn.com/problems/reorder-list/)
+- [ ] [linked-list-cycle](https://leetcode-cn.com/problems/linked-list-cycle/)
+- [ ] [linked-list-cycle-ii](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+- [ ] [palindrome-linked-list](https://leetcode-cn.com/problems/palindrome-linked-list/)
+- [ ] [copy-list-with-random-pointer](https://leetcode-cn.com/problems/copy-list-with-random-pointer/)

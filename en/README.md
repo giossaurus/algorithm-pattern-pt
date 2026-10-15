@@ -2,7 +2,7 @@
 
 **English** | [Português (Brasil)](../pt-br/README.md)
 
-![Let's grind LeetCode](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/title.png)
+![Let's grind LeetCode](../images/title.png)
 
 Algorithm patterns — the most scientific way to practice, the fastest path to an offer. Go from beginner to offer in one month. You deserve it 🐶~
 
@@ -51,9 +51,9 @@ After finishing these practice problems, you'll have developed your own understa
 
 Starting my job search in April, I went from zero to grinding LeetCode, finishing 240 problems in about a month and a half (6 weeks).
 
-![240 problems in a month and a half](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/leetcode_time.png)
+![240 problems in a month and a half](../images/leetcode_time.png)
 
-![Practice record](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/leetcode_record.png)
+![Practice record](../images/leetcode_record.png)
 
 When I first started, I really didn't know where to begin. Going in numeric order, I'd hit a hard problem after just a few and get stuck for a long time. Later I read the comments to see how others practiced and Googled the best approach, and discovered that practicing by topic is much more comfortable — you can knock out many problems of the same type in a single day. Gradually, grinding stopped being tedious and became genuinely interesting, and in the end I received some solid offers (I eventually joined one of the giants).
 
@@ -67,15 +67,15 @@ Why this order? The problems in this repo are grouped by type — they're common
 
 1. [algorithm-pattern practice problems](https://greyireland.gitbook.io/algorithm-pattern/)
 
-![Practice problems](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/repo_practice.png)
+![Practice problems](../images/repo_practice.png)
 
 2. [LeetCode Explore cards](https://leetcode-cn.com/explore/)
 
-![Explore cards](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/leetcode_explore.png)
+![Explore cards](../images/leetcode_explore.png)
 
 3. [Coding Interviews](https://leetcode.com/problemset/)
 
-![Coding Interviews](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/leetcode_jzoffer.png)
+![Coding Interviews](../images/leetcode_jzoffer.png)
 
 Budget your time sensibly. If you're preparing for interviews, I suggest finishing the first two parts in a month and a half (6 weeks), and the final "Coding Interviews" part in another half month. You can send out résumés and interview while you practice. Don't panic when you hit something you can't solve — just map it onto a template. And if an interviewer gives you a hint, take it and run — don't miss the opportunity~
 

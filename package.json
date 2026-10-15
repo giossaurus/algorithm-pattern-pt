@@ -1,0 +1,14 @@
+{
+  "name": "algorithm-pattern-pt",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "docs:dev": "vitepress dev .",
+    "docs:build": "vitepress build .",
+    "docs:preview": "vitepress preview .",
+    "docs:check": "node scripts/check-content.mjs && node scripts/check-dist.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}

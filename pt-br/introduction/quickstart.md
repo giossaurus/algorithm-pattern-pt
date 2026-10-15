@@ -2,7 +2,7 @@
 
 ## Estruturas de dados e algoritmos
 
-A estrutura de dados é uma forma de representar dados. Listas vinculadas, árvores binárias, pilhas, filas e assim por diante são maneiras pelas quais um dado é representado na memória.
+A estrutura de dados é uma forma de representar dados. Listas encadeadas, árvores binárias, pilhas, filas e assim por diante são maneiras pelas quais um dado é representado na memória.
 Um algoritmo é um modelo ou abordagem geral para resolver um problema. A maioria das estruturas de dados possui um conjunto de modelos de algoritmos de uso geral, portanto, dominar esses modelos gerais é suficiente para resolver uma ampla variedade de problemas de algoritmos.
 
 Os capítulos a seguir cobrirão várias estruturas de dados, modelos de algoritmos básicos e alguns modelos de algoritmos avançados por tópico. Cada tópico inclui vários problemas práticos clássicos. Depois de concluir todos os problemas práticos, você obterá novos insights e compreensão de estruturas de dados e algoritmos.
@@ -13,7 +13,7 @@ Exemplo 1
 
 [strStr](https://leetcode-cn.com/problems/implement-strstr/)
 
-> Dado um barbante de palheiro e um barbante de agulha, encontre o índice do primeiro ocorrência (a partir de 0) de agulha no palheiro. Se não existir, retorne -1.
+> Dadas uma string haystack e uma string needle, encontre o índice da primeira ocorrência (a partir de 0) de needle em haystack. Se não existir, retorne -1.
 
 Ideia: O ponto principal é iterar sobre os caracteres da string fornecida e verificar se a substring começando no caractere atual é igual à string de destino.
 
@@ -41,16 +41,16 @@ func strStr(haystack string, needle string) int {
 
 Coisas a serem observadas
 
-- Durante o loop, não preciso ir até len-1.
-- Se a string de destino for encontrada, então len(agulha)==j.
+- Durante o loop, i não precisa ir até len-1.
+- Se a string de destino for encontrada, então len(needle)==j.
 
 Exemplo 2
 
-[subconjuntos](https://leetcode-cn.com/problems/subsets/)
+[subsets](https://leetcode-cn.com/problems/subsets/)
 
-> Dado um array inteiro nums sem elementos duplicados, retorne todos os subconjuntos possíveis (o conjunto de potência) do array.
+> Dado um array de inteiros nums sem elementos duplicados, retorne todos os subconjuntos possíveis (o conjunto das partes) do array.
 
-Idéia: Este é um problema clássico que aplica retrocesso. Em suma, enumera exaustivamente todas as possibilidades. O modelo do algoritmo é o seguinte:
+Ideia: este é um problema clássico de backtracking. Em resumo, ele enumera exaustivamente todas as possibilidades. O modelo do algoritmo é o seguinte:
 
 ```go
 result = []
@@ -96,13 +96,13 @@ func backtrack(nums []int, pos int, list []int, result *[][]int) {
 }
 ```
 
-Nota: Vários problemas clássicos de retrocesso serão discutidos em profundidade posteriormente. Se você não entende isso agora, pode ignorá-lo por enquanto.
+Nota: Vários problemas clássicos de backtracking serão discutidos em profundidade posteriormente. Se você não entende isso agora, pode ignorá-lo por enquanto.
 
 ## Dicas para entrevistas
 
 Na maioria das vezes, praticamos problemas de algoritmo para nos preparar para entrevistas, portanto, há algumas coisas a ter em mente durante uma entrevista.
 
-- Identifique rapidamente o ponto de conhecimento do problema e encontre o **modelo geral** para esse ponto de conhecimento; você pode precisar aplicar **tratamento especial para casos especiais** dependendo do problema.
+- Identifique rapidamente o conceito cobrado pelo problema e encontre o **template geral** para esse conceito; você pode precisar aplicar **tratamento especial para casos especiais** dependendo do problema.
 - Primeiro mire em uma direção que resolva o problema! **Proponha primeiro uma solução viável**, não a ideal! Resolva primeiro e depois otimize!
 - Mantenha seu estilo de codificação consistente e esteja familiarizado com as convenções de código de cada linguagem.
  - Mantenha os nomes tão concisos e claros quanto possível; evite nomear com números como i1, node1, a1, b2.
@@ -113,4 +113,4 @@ Na maioria das vezes, praticamos problemas de algoritmo para nos preparar para e
 ## Exercícios
 
 - [ ] [strStr](https://leetcode-cn.com/problems/implement-strstr/)
-- [ ] [subconjuntos](https://leetcode-cn.com/problems/subsets/)
+- [ ] [subsets](https://leetcode-cn.com/problems/subsets/)

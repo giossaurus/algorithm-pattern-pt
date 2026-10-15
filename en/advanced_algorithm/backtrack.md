@@ -28,7 +28,7 @@ The core idea is to make a choice from the choice list, then keep recursing down
 
 Traversal process
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/backtrack.png)
+![image.png](../../images/backtrack.png)
 
 ```go
 func subsets(nums []int) [][]int {

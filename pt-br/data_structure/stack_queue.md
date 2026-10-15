@@ -1,22 +1,22 @@
-# 栈和队列
+# Pilha e fila
 
-## 简介
+## Introdução
 
-栈的特点是后入先出
+A característica de uma pilha é último a entrar, primeiro a sair (LIFO).
 
 ![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack.png)
 
-根据这个特点可以临时保存一些数据，之后用到依次再弹出来，常用于 DFS 深度搜索
+Com base nesta propriedade, podemos salvar temporariamente alguns dados e posteriormente colocá-los de volta em ordem quando necessário. É comumente usado em DFS (pesquisa em profundidade).
 
-队列一般常用于 BFS 广度搜索，类似一层一层的搜索
+A fila é geralmente usada em BFS (pesquisa em largura), pesquisando camada por camada.
 
-## Stack 栈
+## Stack
 
 [min-stack](https://leetcode-cn.com/problems/min-stack/)
 
-> 设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。
+> Projete uma pilha que suporte operações push, pop e top e possa recuperar o elemento mínimo em tempo constante.
 
-思路：用两个栈实现，一个最小栈始终保证最小值在顶部
+Ideia: Implementar com duas pilhas; uma pilha mínima sempre mantém o valor mínimo no topo.
 
 ```go
 type MinStack struct {
@@ -81,13 +81,13 @@ func (this *MinStack) GetMin() int {
  */
 ```
 
-[evaluate-reverse-polish-notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+[avaliar-notação polonesa reversa](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
 
-> **波兰表达式计算** > **输入:** `["2", "1", "+", "3", "*"]` > **输出:** 9
+> **Avaliação da notação polonesa reversa** > **Entrada:** `["2", "1", "+", "3", "*"]` > **Saída:** 9
 >
-> **解释:** `((2 + 1) * 3) = 9`
+> **Explicação:** `((2 + 1) * 3) = 9`
 
-思路：通过栈保存原来的元素，遇到表达式弹出运算，再推入结果，重复这个过程
+Ideia: Use uma pilha para salvar os elementos originais; quando um operador for encontrado, pop e calcule e, em seguida, empurre o resultado de volta, repetindo esse processo.
 
 ```go
 func evalRPN(tokens []string) int {
@@ -101,7 +101,7 @@ func evalRPN(tokens []string) int {
             if len(stack)<2{
                 return -1
             }
-            // 注意：a为被除数，b为除数
+            // Note: a is the dividend, b is the divisor
             b:=stack[len(stack)-1]
             a:=stack[len(stack)-2]
             stack=stack[:len(stack)-2]
@@ -118,7 +118,7 @@ func evalRPN(tokens []string) int {
             }
             stack=append(stack,result)
         default:
-            // 转为数字
+            // Convert to a number
             val,_:=strconv.Atoi(tokens[i])
             stack=append(stack,val)
         }
@@ -129,12 +129,12 @@ func evalRPN(tokens []string) int {
 
 [decode-string](https://leetcode-cn.com/problems/decode-string/)
 
-> 给定一个经过编码的字符串，返回它解码后的字符串。
-> s = "3[a]2[bc]", 返回 "aaabcbc".
-> s = "3[a2[c]]", 返回 "accaccacc".
-> s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef".
+> Dada uma string codificada, retorne sua string decodificada.
+> s = "3[a]2[bc]", retorna "aaabcbc".
+> s = "3[a2[c]]", retorna "accaccacc".
+> s = "2[abc]3[cd]ef", retorna "abcabccdcdcdef".
 
-思路：通过栈辅助进行操作
+Ideia: Use uma pilha para auxiliar nas operações.
 
 ```go
 func decodeString(s string) string {
@@ -158,12 +158,12 @@ func decodeString(s string) string {
 			for len(stack) >= idx && stack[len(stack)-idx] >= '0' && stack[len(stack)-idx] <= '9' {
 				idx++
 			}
-            // 注意索引边界
+            // Pay attention to index boundaries
 			num := stack[len(stack)-idx+1:]
 			stack = stack[:len(stack)-idx+1]
 			count, _ := strconv.Atoi(string(num))
 			for j := 0; j < count; j++ {
-                // 把字符正向放回到栈里面
+                // Put the characters back onto the stack in forward order
 				for j := len(temp) - 1; j >= 0; j-- {
 					stack = append(stack, temp[j])
 				}
@@ -177,7 +177,7 @@ func decodeString(s string) string {
 }
 ```
 
-利用栈进行 DFS 递归搜索模板
+Modelo para pesquisa recursiva DFS usando uma pilha
 
 ```go
 boolean DFS(int root, int target) {
@@ -199,12 +199,12 @@ boolean DFS(int root, int target) {
 }
 ```
 
-[binary-tree-inorder-traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+[travessia em ordem de árvore binária](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
 
-> 给定一个二叉树，返回它的*中序*遍历。
+> Dada uma árvore binária, retorne sua travessia *em ordem*.
 
 ```go
-// 思路：通过stack 保存已经访问的元素，用于原路返回
+// Idea: use a stack to save the already-visited elements, so we can backtrack along the original path
 func inorderTraversal(root *TreeNode) []int {
     result := make([]int, 0)
     if root == nil {
@@ -214,9 +214,9 @@ func inorderTraversal(root *TreeNode) []int {
     for len(stack) > 0 || root != nil {
         for root != nil {
             stack = append(stack, root)
-            root = root.Left // 一直向左
+            root = root.Left // keep going left
         }
-        // 弹出
+        // pop
         val := stack[len(stack)-1]
         stack = stack[:len(stack)-1]
         result = append(result, val.Val)
@@ -228,7 +228,7 @@ func inorderTraversal(root *TreeNode) []int {
 
 [clone-graph](https://leetcode-cn.com/problems/clone-graph/)
 
-> 给你无向连通图中一个节点的引用，请你返回该图的深拷贝（克隆）。
+> Dada uma referência a um nó em um gráfico conectado não direcionado, retorne uma cópia profunda (clone) do gráfico.
 
 ```go
 func cloneGraph(node *Node) *Node {
@@ -237,12 +237,12 @@ func cloneGraph(node *Node) *Node {
 }
 // 1 2
 // 4 3
-// 递归克隆，传入已经访问过的元素作为过滤条件
+// Recursively clone, passing in the already-visited elements as a filter condition
 func clone(node *Node,visited map[*Node]*Node)*Node{
     if node==nil{
         return nil
     }
-    // 已经访问过直接返回
+    // If already visited, return directly
     if v,ok:=visited[node];ok{
         return v
     }
@@ -258,11 +258,11 @@ func clone(node *Node,visited map[*Node]*Node)*Node{
 }
 ```
 
-[number-of-islands](https://leetcode-cn.com/problems/number-of-islands/)
+[número de ilhas](https://leetcode-cn.com/problems/number-of-islands/)
 
-> 给定一个由  '1'（陆地）和 '0'（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。
+> Dada uma grade 2D composta por '1' (terra) e '0' (água), conte o número de ilhas. Uma ilha é cercada por água e é formada pela conexão de terras adjacentes horizontal ou verticalmente. Você pode assumir que todas as quatro bordas da grade estão cercadas por água.
 
-思路：通过深度搜索遍历可能性（注意标记已访问元素）
+Ideia: Percorra as possibilidades através da pesquisa em profundidade (nota: marque os elementos visitados).
 
 ```go
 
@@ -282,7 +282,7 @@ func dfs(grid [][]byte,i,j int)int{
         return 0
     }
     if grid[i][j]=='1'{
-        // 标记已经访问过(每一个点只需要访问一次)
+        // Mark as visited (each cell only needs to be visited once)
         grid[i][j]=0
         return dfs(grid,i-1,j)+dfs(grid,i,j-1)+dfs(grid,i+1,j)+dfs(grid,i,j+1)+1
     }
@@ -290,16 +290,16 @@ func dfs(grid [][]byte,i,j int)int{
 }
 ```
 
-[largest-rectangle-in-histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+[maior retângulo no histograma](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 
-> 给定 _n_ 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
-> 求在该柱状图中，能够勾勒出来的矩形的最大面积。
+> Dados _n_ inteiros não negativos representando as alturas das barras em um histograma, onde cada barra é adjacente às outras e tem uma largura de 1.
+> Encontre o maior retângulo que pode ser delineado no histograma.
 
-思路：求以当前柱子为高度的面积，即转化为寻找小于当前值的左右两边值
+Idea: Calcular a área com a barra atual como altura; isto é, reduz-se a encontrar os valores mais próximos à esquerda e à direita que são menores que o valor atual.
 
 ![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack_rain.png)
 
-用栈保存小于当前值的左的元素
+Use uma pilha para salvar os elementos do lado esquerdo que são menores que o atual valor.
 
 ![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack_rain2.png)
 
@@ -317,12 +317,12 @@ func largestRectangleArea(heights []int) int {
 		} else {
 			cur = heights[i]
 		}
-        // 当前高度小于栈，则将栈内元素都弹出计算面积
+        // If the current height is smaller than the top of the stack, pop all stack elements and compute the area
 		for len(stack) != 0 && cur <= heights[stack[len(stack)-1]] {
 			pop := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
 			h := heights[pop]
-            // 计算宽度
+            // Compute the width
 			w := i
 			if len(stack) != 0 {
 				peek := stack[len(stack)-1]
@@ -330,7 +330,7 @@ func largestRectangleArea(heights []int) int {
 			}
 			max = Max(max, h*w)
 		}
-        // 记录索引即可获取对应元素
+        // Record the index so we can obtain the corresponding element
 		stack = append(stack, i)
 	}
 	return max
@@ -343,13 +343,13 @@ func Max(a, b int) int {
 }
 ```
 
-## Queue 队列
+## Fila
 
-常用于 BFS 宽度优先搜索
+Comumente usado em BFS (busca em largura).
 
-[implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+[implementar fila usando pilhas](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 
-> 使用栈实现队列
+> Implementar uma fila usando pilhas.
 
 ```go
 type MyQueue struct {
@@ -423,11 +423,11 @@ func (this *MyQueue) Empty() bool {
  */
 ```
 
-二叉树层次遍历
+Traversal de ordem de nível de árvore binária
 
 ```go
 func levelOrder(root *TreeNode) [][]int {
-    // 通过上一层的长度确定下一层的元素
+    // Use the length of the previous level to determine the elements of the next level
     result := make([][]int, 0)
     if root == nil {
         return result
@@ -436,11 +436,11 @@ func levelOrder(root *TreeNode) [][]int {
     queue = append(queue, root)
     for len(queue) > 0 {
         list := make([]int, 0)
-        // 为什么要取length？
-        // 记录当前层有多少元素（遍历当前层，再添加下一层）
+        // Why take the length?
+        // To record how many elements are in the current level (traverse the current level, then add the next level)
         l := len(queue)
         for i := 0; i < l; i++ {
-            // 出队列
+            // dequeue
             level := queue[0]
             queue = queue[1:]
             list = append(list, level.Val)
@@ -457,13 +457,13 @@ func levelOrder(root *TreeNode) [][]int {
 }
 ```
 
-[01-matrix](https://leetcode-cn.com/problems/01-matrix/)
+[01-matriz](https://leetcode-cn.com/problems/01-matrix/)
 
-> 给定一个由 0 和 1 组成的矩阵，找出每个元素到最近的 0 的距离。
-> 两个相邻元素间的距离为 1
+> Dada uma matriz composta de 0s e 1s, encontre a distância de cada elemento até o 0.
+> A distância entre dois elementos adjacentes é 1.
 
 ```go
-// BFS 从0进队列，弹出之后计算上下左右的结果，将上下左右重新进队列进行二层操作
+// BFS: enqueue from the 0s, after dequeuing compute the results for up/down/left/right, then re-enqueue them for the next layer of operations
 // 0 0 0 0
 // 0 x 0 0
 // x x x 0
@@ -483,7 +483,7 @@ func updateMatrix(matrix [][]int) [][]int {
     for i:=0;i<len(matrix);i++{
         for j:=0;j<len(matrix[0]);j++{
             if matrix[i][j]==0{
-                // 进队列
+                // enqueue
                 point:=[]int{i,j}
                 q=append(q,point)
             }else{
@@ -493,7 +493,7 @@ func updateMatrix(matrix [][]int) [][]int {
     }
     directions:=[][]int{{0,1},{0,-1},{-1,0},{1,0}}
     for len(q)!=0{
-        // 出队列
+        // dequeue
         point:=q[0]
         q=q[1:]
         for _,v:=range directions{
@@ -501,7 +501,7 @@ func updateMatrix(matrix [][]int) [][]int {
             y:=point[1]+v[1]
             if x>=0&&x<len(matrix)&&y>=0&&y<len(matrix[0])&&matrix[x][y]==-1{
                 matrix[x][y]=matrix[point[0]][point[1]]+1
-                // 将当前的元素进队列，进行一次BFS
+                // Enqueue the current element to perform one more round of BFS
                 q=append(q,[]int{x,y})
             }
         }
@@ -511,22 +511,22 @@ func updateMatrix(matrix [][]int) [][]int {
 }
 ```
 
-## 总结
+## Resumo
 
-- 熟悉栈的使用场景
-  - 后入先出，保存临时值
-  - 利用栈 DFS 深度搜索
-- 熟悉队列的使用场景
-  - 利用队列 BFS 广度搜索
+- Familiarize-se com os casos de uso de pilhas
+ - Último a entrar, primeiro a sair; salvando valores temporários
+ - Usando uma pilha para DFS (pesquisa em profundidade)
+- Familiarize-se com os casos de uso de filas
+ - Usando uma fila para BFS (pesquisa em largura)
 
-## 练习
+## Exercícios
 
 - [ ] [min-stack](https://leetcode-cn.com/problems/min-stack/)
-- [ ] [evaluate-reverse-polish-notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
-- [ ] [decode-string](https://leetcode-cn.com/problems/decode-string/)
-- [ ] [binary-tree-inorder-traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
-- [ ] [clone-graph](https://leetcode-cn.com/problems/clone-graph/)
-- [ ] [number-of-islands](https://leetcode-cn.com/problems/number-of-islands/)
-- [ ] [largest-rectangle-in-histogram](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
-- [ ] [implement-queue-using-stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
-- [ ] [01-matrix](https://leetcode-cn.com/problems/01-matrix/)
+- [ ] [avaliar notação polonesa reversa](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+- [] [string de decodificação](https://leetcode-cn.com/problems/decode-string/)
+- [] [travessia de ordem de árvore binária](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+- [] [gráfico clone](https://leetcode-cn.com/problems/clone-graph/)
+- [ ] [número de ilhas](https://leetcode-cn.com/problems/number-of-islands/)
+- [ ] [maior retângulo no histograma](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+- [ ] [implementar fila usando pilhas](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+- [ ] [01-matriz](https://leetcode-cn.com/problems/01-matrix/)

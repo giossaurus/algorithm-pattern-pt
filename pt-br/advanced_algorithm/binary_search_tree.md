@@ -1,15 +1,15 @@
-# 二叉搜索树
+# Árvore de pesquisa binária
 
-## 定义
+## Definição
 
-- 每个节点中的值必须大于（或等于）存储在其左侧子树中的任何值。
-- 每个节点中的值必须小于（或等于）存储在其右子树中的任何值。
+- O valor em cada nó deve ser maior que (ou igual a) qualquer valor armazenado em sua subárvore esquerda.
+- O valor em cada nó deve ser menor que (ou igual a) qualquer valor armazenado em sua subárvore direita.
 
-## 应用
+## Aplicativos
 
-[validate-binary-search-tree](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+[validar árvore de pesquisa binária](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 
-> 验证二叉搜索树
+> Validar uma árvore de pesquisa binária
 
 ```go
 /**
@@ -39,11 +39,11 @@ func dfs(root *TreeNode)(result ResultType){
     left:=dfs(root.Left)
     right:=dfs(root.Right)
 
-    // 1、满足左边最大值<root<右边最小值 && 左右两边valid
+    // 1. Satisfy left max < root < right min && both left and right are valid
     if root.Val>left.max && root.Val<right.min && left.valid && right.valid {
         result.valid=true
     }
-    // 2、更新当前节点的最大最小值
+    // 2. Update the max and min values of the current node
     result.max=Max(Max(left.max,right.max),root.Val)
     result.min=Min(Min(left.min,right.min),root.Val)
     return
@@ -63,9 +63,9 @@ func Min(a,b int)int{
 
 ```
 
-[insert-into-a-binary-search-tree](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+[inserir em uma árvore de pesquisa binária](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
 
-> 给定二叉搜索树（BST）的根节点和要插入树中的值，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。 保证原始二叉搜索树中不存在新值。
+> Dado o nó raiz de uma árvore de pesquisa binária (BST) e um valor para inserir na árvore, insira o valor na árvore de pesquisa binária. Retorna o nó raiz da árvore de pesquisa binária após a inserção. É garantido que o novo valor não existe na árvore de busca binária original.
 
 ```go
 func insertIntoBST(root *TreeNode, val int) *TreeNode {
@@ -83,7 +83,7 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 
 [delete-node-in-a-bst](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
 
-> 给定一个二叉搜索树的根节点 root 和一个值 key，删除二叉搜索树中的  key  对应的节点，并保证二叉搜索树的性质不变。返回二叉搜索树（有可能被更新）的根节点的引用。
+> Dado o nó raiz raiz de uma árvore de pesquisa binária e uma chave de valor, exclua o nó correspondente à chave na árvore de pesquisa binária enquanto mantém a propriedade da árvore de pesquisa binária inalterada. Retorna uma referência ao nó raiz da árvore de pesquisa binária (possivelmente atualizada).
 
 ```go
 /**
@@ -95,10 +95,10 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
  * }
  */
 func deleteNode(root *TreeNode, key int) *TreeNode {
-    // 删除节点分为三种情况：
-    // 1、只有左节点 替换为右
-    // 2、只有右节点 替换为左
-    // 3、有左右子节点 左子节点连接到右边最左节点即可
+    // Deleting a node falls into three cases:
+    // 1. Only a left child: replace with the right
+    // 2. Only a right child: replace with the left
+    // 3. Has both left and right children: connect the left child to the leftmost node on the right
     if root ==nil{
         return root
     }
@@ -113,7 +113,7 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
             return root.Left
         }else{
             cur:=root.Right
-            // 一直向左找到最后一个左节点即可
+            // Keep going left until reaching the last left node
             for cur.Left!=nil{
                 cur=cur.Left
             }
@@ -125,9 +125,9 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 }
 ```
 
-[balanced-binary-tree](https://leetcode-cn.com/problems/balanced-binary-tree/)
+[árvore binária balanceada](https://leetcode-cn.com/problems/balanced-binary-tree/)
 
-> 给定一个二叉树，判断它是否是高度平衡的二叉树。
+> Dada uma árvore binária, determine se ela é balanceada em altura.
 
 ```go
 type ResultType struct{
@@ -145,7 +145,7 @@ func dfs(root *TreeNode)(result ResultType){
     }
     left:=dfs(root.Left)
     right:=dfs(root.Right)
-    // 满足所有特点：二叉搜索树&&平衡
+    // Satisfy all properties: binary search tree && balanced
     if left.valid&&right.valid&&abs(left.height,right.height)<=1{
         result.valid=true
     }
@@ -167,9 +167,9 @@ func Max(a,b int)int{
 
 ```
 
-## 练习
+## Exercícios
 
-- [ ] [validate-binary-search-tree](https://leetcode-cn.com/problems/validate-binary-search-tree/)
-- [ ] [insert-into-a-binary-search-tree](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
-- [ ] [delete-node-in-a-bst](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
-- [ ] [balanced-binary-tree](https://leetcode-cn.com/problems/balanced-binary-tree/)
+- [ ] [validar-árvore-de-pesquisa-binária](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+- [ ] [inserir-em-uma-árvore-de-pesquisa-binária](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+- [ ] [excluir nó em um-bst](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
+- [ ] [árvore binária balanceada](https://leetcode-cn.com/problems/balanced-binary-tree/)

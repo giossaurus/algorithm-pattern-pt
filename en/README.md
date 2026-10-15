@@ -1,6 +1,6 @@
 # Algorithm Patterns
 
-**English** | [中文](../README_zh.md)
+**English** | [Português (Brasil)](../pt-br/README.md)
 
 ![Let's grind LeetCode](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/title.png)
 
@@ -61,7 +61,7 @@ Back to the original question: how many problems do you actually need to solve f
 
 ## Recommended Practice Path
 
-Work through this repo's table of contents once; if you get stuck on a problem, skip it for now. Then go through the LeetCode Explore basic cards once, and finally, right before interviews, work through "Coding Interviews" (剑指 offer).
+Work through this repo's table of contents once; if you get stuck on a problem, skip it for now. Then go through the LeetCode Explore basic cards once, and finally, right before interviews, work through Coding Interviews.
 
 Why this order? The problems in this repo are grouped by type — they're common, high-frequency, and representative, and most can be solved with a template plus a small variation. After finishing, you'll have a basic grasp of most problems. Then the Explore cards reinforce and consolidate fundamental concepts. Finally, "Coding Interviews" is the source of many companies' interview questions; after finishing it you'll often encounter the exact problems or variations in interviews. Get through these three parts and most domestic company interviews should be no problem~
 
@@ -73,7 +73,7 @@ Why this order? The problems in this repo are grouped by type — they're common
 
 ![Explore cards](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/leetcode_explore.png)
 
-3. [Coding Interviews (剑指 offer)](https://leetcode-cn.com/problemset/lcof/)
+3. [Coding Interviews](https://leetcode.com/problemset/)
 
 ![Coding Interviews](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/leetcode_jzoffer.png)
 
@@ -91,4 +91,4 @@ Here are some classic computer science books, most of which should help with int
 
 Continuously updated. If you find it helpful, please drop a **star** ⭐️~
 
-【 Github 】[https://github.com/greyireland/algorithm-pattern](https://github.com/greyireland/algorithm-pattern) ⭐️
+Original project: [greyireland/algorithm-pattern](https://github.com/greyireland/algorithm-pattern)

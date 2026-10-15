@@ -24,3 +24,9 @@
 - [Sliding Window](advanced_algorithm/slide_window.md)
 - [Binary Search Tree](advanced_algorithm/binary_search_tree.md)
 - [Backtracking](advanced_algorithm/backtrack.md)
+
+## Practice Material
+
+- [B+ Tree](practice_algorithm/bplus.md)
+- [Data Index](practice_algorithm/data_index.md)
+- [Skip List](practice_algorithm/skiplist.md)

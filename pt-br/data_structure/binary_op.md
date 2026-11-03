@@ -1,8 +1,8 @@
-# Binary
+# Manipulação de bits
 
-## Operações Binárias Comuns
+## Operações binárias comuns
 
-### Operações Básicas
+### Operações básicas
 
 a=0^a=a^0
 
@@ -10,7 +10,7 @@ a=0^a=a^0
 
 Dos dois acima podemos derivar: a=a^b^b
 
-### Troca Dois Números
+### Trocar dois números
 
 a=a^b
 
@@ -18,19 +18,19 @@ b=a^b
 
 a=a^b
 
-### Remova o último 1
+### Remover o último 1
 
 a=n&(n-1)
 
-### Obtenha o último 1
+### Obter o último 1
 
 diff=(n&(n-1))^n
 
 ## Problemas comuns
 
-[número único](https://leetcode-cn.com/problems/single-number/)
+[single-number](https://leetcode-cn.com/problems/single-number/)
 
-> Dada uma matriz de inteiros **não vazia**, cada elemento aparece duas vezes, exceto um. Encontre esse único elemento.
+> Dado um array de inteiros **não vazio**, todo elemento aparece duas vezes, exceto um. Encontre esse elemento único.
 
 ```go
 func singleNumber(nums []int) int {
@@ -44,9 +44,9 @@ func singleNumber(nums []int) int {
 }
 ```
 
-[número-único-ii](https://leetcode-cn.com/problems/single-number-ii/)
+[single-number-ii](https://leetcode-cn.com/problems/single-number-ii/)
 
-> Dada uma matriz de inteiros **não vazia**, cada elemento aparece três vezes, exceto uma. Encontre esse único elemento.
+> Dado um array de inteiros **não vazio**, todo elemento aparece três vezes, exceto um. Encontre esse elemento único.
 
 ```go
 func singleNumber(nums []int) int {
@@ -65,9 +65,9 @@ func singleNumber(nums []int) int {
 }
 ```
 
-[número-único-iii](https://leetcode-cn.com/problems/single-number-iii/)
+[single-number-iii](https://leetcode-cn.com/problems/single-number-iii/)
 
-> Dado um array inteiro `nums`, no qual exatamente dois elementos aparecem apenas uma vez e todos os outros elementos aparecem exatamente duas vezes. Encontre os dois elementos que aparecem apenas uma vez.
+> Dado um array de inteiros `nums`, no qual exatamente dois elementos aparecem apenas uma vez e todos os outros elementos aparecem exatamente duas vezes. Encontre os dois elementos que aparecem apenas uma vez.
 
 ```go
 func singleNumber(nums []int) []int {
@@ -94,7 +94,7 @@ func singleNumber(nums []int) []int {
 }
 ```
 
-[número de 1 bits](https://leetcode-cn.com/problems/number-of-1-bits/)
+[number-of-1-bits](https://leetcode-cn.com/problems/number-of-1-bits/)
 
 > Escreva uma função que recebe um número inteiro sem sinal e retorna o número de bits '1' em sua representação binária (também conhecido como [peso de Hamming](https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E9%87%8D%E9%87%8F)).
 
@@ -109,7 +109,7 @@ func hammingWeight(num uint32) int {
 }
 ```
 
-[bits de contagem](https://leetcode-cn.com/problems/counting-bits/)
+[counting-bits](https://leetcode-cn.com/problems/counting-bits/)
 
 > Dado um número inteiro não negativo **num**. Para cada número i no intervalo 0 ≤ i ≤ num, calcule o número de 1s em sua representação binária e retorne-os como um array.
 
@@ -146,9 +146,9 @@ func countBits(num int) []int {
 
 [reverse-bits](https://leetcode-cn.com/problems/reverse-bits/)
 
-> Reverter os bits binários de um determinado número inteiro sem sinal de 32 bits.
+> Inverta os bits de um inteiro sem sinal de 32 bits.
 
-Ideia: reverter bit por bit
+Ideia: inverter bit a bit
 
 ```go
 func reverseBits(num uint32) uint32 {
@@ -164,9 +164,9 @@ func reverseBits(num uint32) uint32 {
 }
 ```
 
-[intervalo de bits e de números](https://leetcode-cn.com/problems/bitwise-and-of-numbers-range/)
+[bitwise-and-of-numbers-range](https://leetcode-cn.com/problems/bitwise-and-of-numbers-range/)
 
-> Dado um intervalo [m, n] onde 0 <= m <= n <= 2147483647, retorne o AND bit a bit de todos os números neste intervalo (incluindo ambos os pontos de extremidade m e n).
+> Dado um intervalo [m, n] onde 0 <= m <= n <= 2147483647, retorne o AND bit a bit de todos os números neste intervalo (incluindo as extremidades m e n).
 
 ```go
 func rangeBitwiseAnd(m int, n int) int {
@@ -190,9 +190,9 @@ func rangeBitwiseAnd(m int, n int) int {
 
 ## Exercícios
 
-- [ ] [número único](https://leetcode-cn.com/problems/single-number/)
-- [ ] [número único-ii](https://leetcode-cn.com/problems/single-number-ii/)
-- [ ] [número único-iii](https://leetcode-cn.com/problems/single-number-iii/)
-- [ ] [número de 1 bits](https://leetcode-cn.com/problems/number-of-1-bits/)
-- [ ] [contando bits](https://leetcode-cn.com/problems/counting-bits/)
-- [ ] [bits reversos](https://leetcode-cn.com/problems/reverse-bits/)
+- [ ] [single-number](https://leetcode-cn.com/problems/single-number/)
+- [ ] [single-number-ii](https://leetcode-cn.com/problems/single-number-ii/)
+- [ ] [single-number-iii](https://leetcode-cn.com/problems/single-number-iii/)
+- [ ] [number-of-1-bits](https://leetcode-cn.com/problems/number-of-1-bits/)
+- [ ] [counting-bits](https://leetcode-cn.com/problems/counting-bits/)
+- [ ] [reverse-bits](https://leetcode-cn.com/problems/reverse-bits/)

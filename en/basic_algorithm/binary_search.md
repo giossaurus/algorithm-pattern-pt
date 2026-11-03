@@ -52,7 +52,7 @@ Most binary search problems can use this template, then add a little special log
 
 There are also some other binary search templates, as shown below. In most scenarios, template #3 can solve the problem, and it can also find the first/last occurrence position, making it more widely applicable.
 
-![binary_search_template](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/binary_search_template.png)
+![binary_search_template](../../images/binary_search_template.png)
 
 So just use template #3. For a detailed comparison, see this article: [Binary Search Template](https://leetcode-cn.com/explore/learn/card/binary-search/212/template-analysis/847/)
 

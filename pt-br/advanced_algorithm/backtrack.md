@@ -1,8 +1,8 @@
 # Backtracking
 
-## Background
+## Contexto
 
-Backtracking é comumente usado para percorrer todos os subconjuntos de uma lista. É uma forma de DFS (busca em profundidade), geralmente usada para permutações e enumerando exaustivamente todas as possibilidades. O processo de travessia é na verdade a travessia de uma árvore de decisão. A complexidade do tempo é geralmente O(N!). Ao contrário da programação dinâmica, ela não possui subproblemas sobrepostos que possam ser otimizados; retrocesso é pura enumeração de força bruta e sua complexidade geralmente é muito alta.
+Backtracking é comumente usado para percorrer todos os subconjuntos de uma lista. É uma forma de DFS (busca em profundidade), geralmente usada em permutações e na enumeração exaustiva de todas as possibilidades. O processo de percurso é, na verdade, o percurso de uma árvore de decisão. A complexidade de tempo geralmente é O(N!). Ao contrário da programação dinâmica, não há subproblemas sobrepostos que possam ser otimizados; backtracking é pura enumeração por força bruta, e sua complexidade geralmente é muito alta.
 
 ## Template
 
@@ -18,17 +18,17 @@ func backtrack(choice list, path):
         undo the choice
 ```
 
-A ideia central é fazer uma escolha na lista de opções e depois continuar recorrendo para baixo em busca da resposta. Se um caminho não leva a lugar nenhum, retorne e desfaça esta escolha.
+A ideia central é fazer uma escolha na lista de opções e depois continuar descendo recursivamente em busca da resposta. Se um caminho não leva a lugar nenhum, volte e desfaça essa escolha.
 
 ## Exemplos
 
-### [subconjuntos](https://leetcode-cn.com/problems/subsets/)
+### [subsets](https://leetcode-cn.com/problems/subsets/)
 
-> Dado um array inteiro nums contendo nenhum elemento duplicado, retorne todos os subconjuntos possíveis (o conjunto de potência) do array.
+> Dado um array de inteiros nums sem elementos duplicados, retorne todos os subconjuntos possíveis (o conjunto das partes) do array.
 
-Traversal process
+Processo de percurso
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/backtrack.png)
+![image.png](../../images/backtrack.png)
 
 ```go
 func subsets(nums []int) [][]int {
@@ -60,7 +60,7 @@ func backtrack(nums []int, pos int, list []int, result *[][]int) {
 
 ### [subsets-ii](https://leetcode-cn.com/problems/subsets-ii/)
 
-> Dado um array inteiro nums que pode conter elementos duplicados, retorne todos os subconjuntos possíveis (o conjunto de potências) do array. Nota: o conjunto de soluções não deve conter subconjuntos duplicados.
+> Dado um array de inteiros nums que pode conter elementos duplicados, retorne todos os subconjuntos possíveis (o conjunto das partes) do array. Observação: o conjunto de soluções não pode conter subconjuntos duplicados.
 
 ```go
 import (
@@ -100,7 +100,7 @@ func backtrack(nums []int, pos int, list []int, result *[][]int) {
 }
 ```
 
-### [permutações](https://leetcode-cn.com/problems/permutations/)
+### [permutations](https://leetcode-cn.com/problems/permutations/)
 
 > Dada uma sequência sem números duplicados, retorne todas as suas permutações possíveis.
 
@@ -146,7 +146,7 @@ func backtrack(nums []int, visited []bool, list []int, result *[][]int) {
 
 ### [permutations-ii](https://leetcode-cn.com/problems/permutations-ii/)
 
-> Dada uma sequência que pode conter números duplicados, retorne todas as permutações exclusivas.
+> Dada uma sequência que pode conter números duplicados, retorne todas as permutações distintas.
 
 ```go
 import (
@@ -194,15 +194,15 @@ func backtrack(nums []int, visited []bool, list []int, result *[][]int) {
 
 ## Exercícios
 
-- [ ] [subconjuntos](https://leetcode-cn.com/problems/subsets/)
-- [ ] [subconjuntos-ii](https://leetcode-cn.com/problems/subsets-ii/)
-- [ ] [permutações](https://leetcode-cn.com/problems/permutations/)
-- [ ] [permutações-ii](https://leetcode-cn.com/problems/permutations-ii/)
+- [ ] [subsets](https://leetcode-cn.com/problems/subsets/)
+- [ ] [subsets-ii](https://leetcode-cn.com/problems/subsets-ii/)
+- [ ] [permutations](https://leetcode-cn.com/problems/permutations/)
+- [ ] [permutations-ii](https://leetcode-cn.com/problems/permutations-ii/)
 
-Problemas de desafio
+Desafios
 
-- [ ] [soma de combinação](https://leetcode-cn.com/problems/combination-sum/)
-- [ ] [combinações de letras de um número de telefone](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
-- [ ] [particionamento de palíndromo](https://leetcode-cn.com/problems/palindrome-partitioning/)
-- [] [restaurar endereços IP](https://leetcode-cn.com/problems/restore-ip-addresses/)
-- [] [permutações](https://leetcode-cn.com/problems/permutations/)
+- [ ] [combination-sum](https://leetcode-cn.com/problems/combination-sum/)
+- [ ] [letter-combinations-of-a-phone-number](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
+- [ ] [palindrome-partitioning](https://leetcode-cn.com/problems/palindrome-partitioning/)
+- [ ] [restore-ip-addresses](https://leetcode-cn.com/problems/restore-ip-addresses/)
+- [ ] [permutations](https://leetcode-cn.com/problems/permutations/)

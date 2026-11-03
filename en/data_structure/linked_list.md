@@ -291,8 +291,8 @@ Points to note
 
 ### [reorder-list](https://leetcode-cn.com/problems/reorder-list/)
 
-> Given a singly linked list *L*: *L*→*L*→…→*L\_\_n*→*L*
-> Rearrange it into: *L*→*L\_\_n*→*L*→*L\_\_n*→*L*→*L\_\_n*→…
+> Given a singly linked list *L*: *L*<sub>0</sub>→*L*<sub>1</sub>→…→*L*<sub>n-1</sub>→*L*<sub>n</sub>
+> Rearrange it into: *L*<sub>0</sub>→*L*<sub>n</sub>→*L*<sub>1</sub>→*L*<sub>n-1</sub>→*L*<sub>2</sub>→*L*<sub>n-2</sub>→…
 
 Idea: find the midpoint and disconnect, reverse the second half, then merge the two halves.
 
@@ -368,7 +368,7 @@ func reverseList(head *ListNode) *ListNode {
 > Given a linked list, determine whether it has a cycle.
 
 Idea: fast and slow pointers. If the fast and slow pointers become equal, there is a cycle. Proof: if there is a cycle, the distance between the fast and slow pointers decreases by 1 with each step.
-![fast_slow_linked_list](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/fast_slow_linked_list.png)
+![fast_slow_linked_list](../../images/fast_slow_linked_list.png)
 
 ```go
 func hasCycle(head *ListNode) bool {
@@ -395,7 +395,7 @@ func hasCycle(head *ListNode) bool {
 > Given a linked list, return the first node where the cycle begins. If the list has no cycle, return `null`.
 
 Idea: fast and slow pointers. After the fast and slow pointers meet, move the slow pointer back to the head, then move the fast and slow pointers together at the same pace; the meeting point is the entry of the cycle.
-![cycled_linked_list](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/cycled_linked_list.png)
+![cycled_linked_list](../../images/cycled_linked_list.png)
 
 ```go
 func detectCycle(head *ListNode) *ListNode {

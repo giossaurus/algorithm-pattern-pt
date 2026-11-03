@@ -25,15 +25,15 @@ Use DFS (traversal or divide and conquer)
 
 Traversal
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/dp_triangle.png)
+![image.png](../../images/dp_triangle.png)
 
 Divide and conquer
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/dp_dc.png)
+![image.png](../../images/dp_dc.png)
 
 Optimize DFS by caching values that have already been computed (called: memoization; essentially: dynamic programming)
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/dp_memory_search.png)
+![image.png](../../images/dp_memory_search.png)
 
 Dynamic programming turns a big problem into small problems, and the method that solves the issue of repeated computation of subproblems is called dynamic programming.
 

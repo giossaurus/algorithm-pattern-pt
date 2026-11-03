@@ -4,7 +4,7 @@
 
 The characteristic of a stack is last-in, first-out (LIFO).
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack.png)
+![image.png](../../images/stack.png)
 
 Based on this property, we can temporarily save some data and later pop it back out in order when needed. It is commonly used in DFS (depth-first search).
 
@@ -297,11 +297,11 @@ func dfs(grid [][]byte,i,j int)int{
 
 Idea: Compute the area with the current bar as the height; that is, it reduces to finding the nearest values on the left and right that are smaller than the current value.
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack_rain.png)
+![image.png](../../images/stack_rain.png)
 
 Use a stack to save the left-side elements that are smaller than the current value.
 
-![image.png](https://cdn.jsdelivr.net/gh/greyireland/algorithm-pattern@master/images/stack_rain2.png)
+![image.png](../../images/stack_rain2.png)
 
 ```go
 func largestRectangleArea(heights []int) int {

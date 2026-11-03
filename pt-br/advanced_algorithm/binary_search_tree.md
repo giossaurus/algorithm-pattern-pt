@@ -1,15 +1,15 @@
-# Árvore de pesquisa binária
+# Árvore binária de busca
 
 ## Definição
 
 - O valor em cada nó deve ser maior que (ou igual a) qualquer valor armazenado em sua subárvore esquerda.
 - O valor em cada nó deve ser menor que (ou igual a) qualquer valor armazenado em sua subárvore direita.
 
-## Aplicativos
+## Aplicações
 
-[validar árvore de pesquisa binária](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+[validate-binary-search-tree](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 
-> Validar uma árvore de pesquisa binária
+> Validar uma árvore binária de busca
 
 ```go
 /**
@@ -63,9 +63,9 @@ func Min(a,b int)int{
 
 ```
 
-[inserir em uma árvore de pesquisa binária](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+[insert-into-a-binary-search-tree](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
 
-> Dado o nó raiz de uma árvore de pesquisa binária (BST) e um valor para inserir na árvore, insira o valor na árvore de pesquisa binária. Retorna o nó raiz da árvore de pesquisa binária após a inserção. É garantido que o novo valor não existe na árvore de busca binária original.
+> Dado o nó raiz de uma árvore binária de busca (BST) e um valor para inserir na árvore, insira o valor na árvore binária de busca. Retorne o nó raiz da árvore binária de busca após a inserção. É garantido que o novo valor não existe na árvore binária de busca original.
 
 ```go
 func insertIntoBST(root *TreeNode, val int) *TreeNode {
@@ -83,7 +83,7 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 
 [delete-node-in-a-bst](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
 
-> Dado o nó raiz raiz de uma árvore de pesquisa binária e uma chave de valor, exclua o nó correspondente à chave na árvore de pesquisa binária enquanto mantém a propriedade da árvore de pesquisa binária inalterada. Retorna uma referência ao nó raiz da árvore de pesquisa binária (possivelmente atualizada).
+> Dado o nó raiz `root` de uma árvore binária de busca e um valor `key`, exclua o nó correspondente a `key`, mantendo a propriedade de árvore binária de busca. Retorne uma referência ao nó raiz (possivelmente atualizado) da árvore.
 
 ```go
 /**
@@ -125,7 +125,7 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 }
 ```
 
-[árvore binária balanceada](https://leetcode-cn.com/problems/balanced-binary-tree/)
+[balanced-binary-tree](https://leetcode-cn.com/problems/balanced-binary-tree/)
 
 > Dada uma árvore binária, determine se ela é balanceada em altura.
 
@@ -169,7 +169,7 @@ func Max(a,b int)int{
 
 ## Exercícios
 
-- [ ] [validar-árvore-de-pesquisa-binária](https://leetcode-cn.com/problems/validate-binary-search-tree/)
-- [ ] [inserir-em-uma-árvore-de-pesquisa-binária](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
-- [ ] [excluir nó em um-bst](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
-- [ ] [árvore binária balanceada](https://leetcode-cn.com/problems/balanced-binary-tree/)
+- [ ] [validate-binary-search-tree](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+- [ ] [insert-into-a-binary-search-tree](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+- [ ] [delete-node-in-a-bst](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
+- [ ] [balanced-binary-tree](https://leetcode-cn.com/problems/balanced-binary-tree/)
